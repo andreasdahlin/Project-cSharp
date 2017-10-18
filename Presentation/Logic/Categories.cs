@@ -11,21 +11,22 @@ namespace Logic
         private string name;
         public string Name { get => name; set => name = value; }
 
-        private List<Categories> categoryList = new List<Categories>();
+        private List<CategorieObjects> categoryList = new List<CategorieObjects>();
 
         public Categories()
         {
-            CreateNewCategories();
+            CategorieObjects c1 = new CategorieObjects("Health");
+            categoryList.Add(c1);
         }
 
         public void CreateNewCategories()
         {
-            categoryList.Add(new Categories { Name = "Health" });
-            categoryList.Add(new Categories { Name = "Economy" });
-            categoryList.Add(new Categories { Name = "Sport" });
+            //categoryList.Add(new Categories { name = "Health" });
+            //categoryList.Add(new Categories { name = "Economy" });
+            //categoryList.Add(new Categories { name = "Sport" });
         }
 
-        public List<Categories> getList()
+        public List<CategorieObjects> getList()
         {
             return categoryList;
         }

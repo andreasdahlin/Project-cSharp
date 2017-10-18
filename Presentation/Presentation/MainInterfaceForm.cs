@@ -23,8 +23,8 @@ namespace Presentation
 
         public void LoadCategories()
         {
-            List<Categories> list = categories.getList();
-            foreach (Categories cat in list)
+            List<CategorieObjects> list = categories.getList();
+            foreach (CategorieObjects cat in list)
             {
                 lbCategories.Items.Add(cat.Name);
             }
