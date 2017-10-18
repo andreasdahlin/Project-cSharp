@@ -6,20 +6,32 @@ using System.Threading.Tasks;
 
 namespace DataAccess
 {
-    class Categories
+    public class Categories
     {
         private string name;
+        private List<Categories> categoryList = new List<Categories>();
 
         public Categories(string name)
         {
             this.name = name;
+            
         }
 
         public void CreateNewCategories()
         {
-            Categories sport = new Categories(name);
-            Categories health = new Categories(name);
-            Categories economy = new Categories(name);
+
+            Categories c1 = new Categories("sport");
+            Categories c2 = new Categories("health");
+            Categories c3 = new Categories("economy");
+
+            categoryList.Add(c1);
+            categoryList.Add(c2);
+            categoryList.Add(c3);
+        }
+
+        public void LoadCategory()
+        {
+
         }
     }
 }

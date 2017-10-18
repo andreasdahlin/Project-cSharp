@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DataAccess;
 
 namespace Presentation
 {
@@ -15,7 +16,8 @@ namespace Presentation
         public MainInterfaceForm()
         {
             InitializeComponent();
-            CreateNewCategories();
+            Categories category = new Categories("sport");
+            category.CreateNewCategories();
         }
 
         private void btnCategoryAdd_Click(object sender, EventArgs e)
