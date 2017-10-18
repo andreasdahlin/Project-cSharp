@@ -1,6 +1,6 @@
 ﻿namespace Presentation
 {
-    partial class Form1
+    partial class MainInterfaceForm
     {
         /// <summary>
         /// Required designer variable.
@@ -316,7 +316,7 @@
             this.Controls.Add(this.tbUrl);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "MainInterface";
             this.ResumeLayout(false);
             this.PerformLayout();
 

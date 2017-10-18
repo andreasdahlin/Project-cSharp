@@ -42,11 +42,11 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(77, 121);
+            this.button1.Location = new System.Drawing.Point(56, 119);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(99, 42);
+            this.button1.Size = new System.Drawing.Size(140, 42);
             this.button1.TabIndex = 1;
-            this.button1.Text = "Lägg till";
+            this.button1.Text = "Add new category";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // lblNewCategory
@@ -54,20 +54,20 @@
             this.lblNewCategory.AutoSize = true;
             this.lblNewCategory.Location = new System.Drawing.Point(29, 38);
             this.lblNewCategory.Name = "lblNewCategory";
-            this.lblNewCategory.Size = new System.Drawing.Size(188, 17);
+            this.lblNewCategory.Size = new System.Drawing.Size(211, 17);
             this.lblNewCategory.TabIndex = 2;
-            this.lblNewCategory.Text = "Välj ett namn på din kategori";
+            this.lblNewCategory.Text = "Chose a name for your category";
             // 
             // NewCategoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(259, 214);
+            this.ClientSize = new System.Drawing.Size(259, 207);
             this.Controls.Add(this.lblNewCategory);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tbNewName);
             this.Name = "NewCategoryForm";
-            this.Text = "Form2";
+            this.Text = "NewCategoryForm";
             this.ResumeLayout(false);
             this.PerformLayout();
 
