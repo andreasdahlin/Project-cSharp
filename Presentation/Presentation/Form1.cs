@@ -66,5 +66,11 @@ namespace Presentation
         {
 
         }
+
+        private void btnCategoryAdd_Click(object sender, EventArgs e)
+        {
+            var newForm = new NewCategoryForm();
+            newForm.Show();
+        }
     }
 }
