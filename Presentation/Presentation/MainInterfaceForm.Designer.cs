@@ -68,7 +68,6 @@
             this.tbInterval.Name = "tbInterval";
             this.tbInterval.Size = new System.Drawing.Size(283, 22);
             this.tbInterval.TabIndex = 1;
-            this.tbInterval.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // cmbCategory
             // 
@@ -96,7 +95,6 @@
             this.btnAdd.TabIndex = 4;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnChange
             // 
@@ -137,7 +135,6 @@
             this.lbFeeds.Name = "lbFeeds";
             this.lbFeeds.Size = new System.Drawing.Size(197, 260);
             this.lbFeeds.TabIndex = 8;
-            this.lbFeeds.SelectedIndexChanged += new System.EventHandler(this.lbFeeds_SelectedIndexChanged);
             // 
             // lbPodcasts
             // 
@@ -200,7 +197,6 @@
             this.btnShowAllFeeds.TabIndex = 14;
             this.btnShowAllFeeds.Text = "Show All Feeds";
             this.btnShowAllFeeds.UseVisualStyleBackColor = true;
-            this.btnShowAllFeeds.Click += new System.EventHandler(this.btnShowAllFeeds_Click);
             // 
             // lblUrl
             // 
@@ -211,7 +207,6 @@
             this.lblUrl.Size = new System.Drawing.Size(36, 17);
             this.lblUrl.TabIndex = 15;
             this.lblUrl.Text = "URL";
-            this.lblUrl.Click += new System.EventHandler(this.label1_Click);
             // 
             // lblName
             // 
@@ -232,7 +227,6 @@
             this.lblInterval.Size = new System.Drawing.Size(54, 17);
             this.lblInterval.TabIndex = 17;
             this.lblInterval.Text = "Interval";
-            this.lblInterval.Click += new System.EventHandler(this.label3_Click);
             // 
             // lblCategories
             // 
@@ -253,7 +247,6 @@
             this.lblCategoriesAboveList.Size = new System.Drawing.Size(76, 17);
             this.lblCategoriesAboveList.TabIndex = 19;
             this.lblCategoriesAboveList.Text = "Categories";
-            this.lblCategoriesAboveList.Click += new System.EventHandler(this.label5_Click);
             // 
             // lblFeeds
             // 
@@ -274,7 +267,6 @@
             this.lblPodcasts.Size = new System.Drawing.Size(66, 17);
             this.lblPodcasts.TabIndex = 21;
             this.lblPodcasts.Text = "Podcasts";
-            this.lblPodcasts.Click += new System.EventHandler(this.label7_Click);
             // 
             // lblPodcastDetails
             // 

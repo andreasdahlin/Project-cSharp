@@ -17,52 +17,6 @@ namespace Presentation
             InitializeComponent();
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void lbFeeds_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lb_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnShowAllFeeds_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnCategoryAdd_Click(object sender, EventArgs e)
         {
             var newForm = new NewCategoryForm();
