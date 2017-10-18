@@ -13,11 +13,21 @@ namespace Presentation
 {
     public partial class MainInterfaceForm : Form
     {
+        private Categories categories = new Categories();
+
         public MainInterfaceForm()
         {
             InitializeComponent();
-            Categories category = new Categories("sport");
-            category.CreateNewCategories();
+            LoadCategories();
+        }
+
+        public void LoadCategories()
+        {
+            List<Categories> list = categories.getList();
+            foreach (Categories cat in list)
+            {
+                lbCategories.Items.Add(cat.Name);
+            }
         }
 
         private void btnCategoryAdd_Click(object sender, EventArgs e)

@@ -9,24 +9,25 @@ namespace Logic
     public class Categories
     {
         private string name;
+        public string Name { get => name; set => name = value; }
+
         private List<Categories> categoryList = new List<Categories>();
 
-        public Categories(string name)
+        public Categories()
         {
-            this.name = name;
-            
+            CreateNewCategories();
         }
 
         public void CreateNewCategories()
         {
+            categoryList.Add(new Categories { Name = "Health" });
+            categoryList.Add(new Categories { Name = "Economy" });
+            categoryList.Add(new Categories { Name = "Sport" });
+        }
 
-            Categories c1 = new Categories("sport");
-            Categories c2 = new Categories("health");
-            Categories c3 = new Categories("economy");
-
-            categoryList.Add(c1);
-            categoryList.Add(c2);
-            categoryList.Add(c3);
+        public List<Categories> getList()
+        {
+            return categoryList;
         }
 
         public void LoadCategory()
