@@ -16,7 +16,11 @@ namespace Logic
         public Categories()
         {
             CategorieObjects c1 = new CategorieObjects("Health");
+            CategorieObjects c2 = new CategorieObjects("Music");
+            CategorieObjects c3 = new CategorieObjects("Sport");
             categoryList.Add(c1);
+            categoryList.Add(c2);
+            categoryList.Add(c3);
         }
 
         public void CreateNewCategories()
