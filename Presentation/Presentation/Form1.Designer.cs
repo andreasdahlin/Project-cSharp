@@ -63,7 +63,7 @@
             // 
             // tbInterval
             // 
-            this.tbInterval.Location = new System.Drawing.Point(48, 137);
+            this.tbInterval.Location = new System.Drawing.Point(47, 139);
             this.tbInterval.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbInterval.Name = "tbInterval";
             this.tbInterval.Size = new System.Drawing.Size(283, 22);
@@ -225,7 +225,7 @@
             // lblInterval
             // 
             this.lblInterval.AutoSize = true;
-            this.lblInterval.Location = new System.Drawing.Point(168, 121);
+            this.lblInterval.Location = new System.Drawing.Point(159, 118);
             this.lblInterval.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblInterval.Name = "lblInterval";
             this.lblInterval.Size = new System.Drawing.Size(54, 17);
