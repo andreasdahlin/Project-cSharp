@@ -179,7 +179,7 @@
             this.btnChangeCategory.TabIndex = 12;
             this.btnChangeCategory.Text = "Change Category";
             this.btnChangeCategory.UseVisualStyleBackColor = true;
-            this.btnChangeCategory.Click += new System.EventHandler(this.button5_Click);
+            this.btnChangeCategory.Click += new System.EventHandler(this.btnChangeCategory_Click);
             // 
             // btnDeleteCategory
             // 
