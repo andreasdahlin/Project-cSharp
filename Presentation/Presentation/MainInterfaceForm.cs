@@ -28,5 +28,10 @@ namespace Presentation
             var newChangeCategoryForm = new ChangeCategoryForm();
             newChangeCategoryForm.Show();
         }
+
+        private void MainInterfaceForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
