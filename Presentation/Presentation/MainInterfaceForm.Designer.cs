@@ -172,7 +172,7 @@
             // 
             // btnChangeCategory
             // 
-            this.btnChangeCategory.Location = new System.Drawing.Point(485, 324);
+            this.btnChangeCategory.Location = new System.Drawing.Point(485, 323);
             this.btnChangeCategory.Margin = new System.Windows.Forms.Padding(4);
             this.btnChangeCategory.Name = "btnChangeCategory";
             this.btnChangeCategory.Size = new System.Drawing.Size(128, 52);
@@ -286,7 +286,7 @@
             this.lblPodcastDetails.TabIndex = 22;
             this.lblPodcastDetails.Text = "Podcast Details";
             // 
-            // Form1
+            // MainInterfaceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -315,7 +315,7 @@
             this.Controls.Add(this.tbInterval);
             this.Controls.Add(this.tbUrl);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "Form1";
+            this.Name = "MainInterfaceForm";
             this.Text = "MainInterface";
             this.ResumeLayout(false);
             this.PerformLayout();
