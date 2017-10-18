@@ -15,6 +15,7 @@ namespace Presentation
         public MainInterfaceForm()
         {
             InitializeComponent();
+            CreateNewCategories();
         }
 
         private void btnCategoryAdd_Click(object sender, EventArgs e)
