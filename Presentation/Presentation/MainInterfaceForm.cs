@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
-using System.Xml.Serialization;
+using System.Xml;
 
 namespace Presentation
 {
@@ -15,6 +15,7 @@ namespace Presentation
         {
             InitializeComponent();
             LoadCategories();
+            LoadXml();
         }
 
         public void LoadCategories()
@@ -45,19 +46,21 @@ namespace Presentation
 
         }
 
-        private void openFileToolStripMenuItem_Click(object sender, EventArgs e)
+        private void LoadXml()
         {
-            OpenFileDialog openfiledialog = new OpenFileDialog();
+            XmlDocument doc = new XmlDocument();
+            doc.Load("https://vokalnow.com/static/feeds/podcast.xml");
 
-            if (openfiledialog.ShowDialog() == DialogResult.OK)
+            XmlElement root = doc.DocumentElement;
+            XmlNodeList nodes = root.SelectNodes("*");
+
+            foreach (XmlNode node in nodes)
             {
-                var path = openfiledialog.FileName;
+                string title = node["title"].InnerText;
+                string desc = node["description"].InnerText; 
 
-                XmlSerializer serializer = new XmlSerializer(typeof(List<Podcast>));
-                StreamReader reader = new StreamReader(path);
-
-                var input = serializer.Deserialize(reader);
-                dataGridView1.DataSource = input;
+                label1.Text = title;
+                label2.Text = desc; 
             }
         }
     }

@@ -51,74 +51,63 @@
             this.lblFeeds = new System.Windows.Forms.Label();
             this.lblPodcasts = new System.Windows.Forms.Label();
             this.lblPodcastDetails = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.dataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.menuStrip1.SuspendLayout();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tbUrl
             // 
-            this.tbUrl.Location = new System.Drawing.Point(48, 44);
-            this.tbUrl.Margin = new System.Windows.Forms.Padding(4);
+            this.tbUrl.Location = new System.Drawing.Point(36, 36);
             this.tbUrl.Name = "tbUrl";
-            this.tbUrl.Size = new System.Drawing.Size(283, 22);
+            this.tbUrl.Size = new System.Drawing.Size(213, 20);
             this.tbUrl.TabIndex = 0;
             // 
             // tbInterval
             // 
-            this.tbInterval.Location = new System.Drawing.Point(47, 139);
-            this.tbInterval.Margin = new System.Windows.Forms.Padding(4);
+            this.tbInterval.Location = new System.Drawing.Point(35, 113);
             this.tbInterval.Name = "tbInterval";
-            this.tbInterval.Size = new System.Drawing.Size(283, 22);
+            this.tbInterval.Size = new System.Drawing.Size(213, 20);
             this.tbInterval.TabIndex = 1;
             // 
             // cmbCategory
             // 
             this.cmbCategory.FormattingEnabled = true;
-            this.cmbCategory.Location = new System.Drawing.Point(53, 202);
-            this.cmbCategory.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbCategory.Location = new System.Drawing.Point(40, 164);
             this.cmbCategory.Name = "cmbCategory";
-            this.cmbCategory.Size = new System.Drawing.Size(276, 24);
+            this.cmbCategory.Size = new System.Drawing.Size(208, 21);
             this.cmbCategory.TabIndex = 2;
             // 
             // tbName
             // 
-            this.tbName.Location = new System.Drawing.Point(47, 92);
-            this.tbName.Margin = new System.Windows.Forms.Padding(4);
+            this.tbName.Location = new System.Drawing.Point(35, 75);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(283, 22);
+            this.tbName.Size = new System.Drawing.Size(213, 20);
             this.tbName.TabIndex = 3;
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(47, 260);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAdd.Location = new System.Drawing.Point(35, 211);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(128, 52);
+            this.btnAdd.Size = new System.Drawing.Size(96, 42);
             this.btnAdd.TabIndex = 4;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
             // 
             // btnChange
             // 
-            this.btnChange.Location = new System.Drawing.Point(203, 260);
-            this.btnChange.Margin = new System.Windows.Forms.Padding(4);
+            this.btnChange.Location = new System.Drawing.Point(152, 211);
             this.btnChange.Name = "btnChange";
-            this.btnChange.Size = new System.Drawing.Size(128, 52);
+            this.btnChange.Size = new System.Drawing.Size(96, 42);
             this.btnChange.TabIndex = 5;
             this.btnChange.Text = "Change";
             this.btnChange.UseVisualStyleBackColor = true;
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(120, 336);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDelete.Location = new System.Drawing.Point(90, 273);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(128, 52);
+            this.btnDelete.Size = new System.Drawing.Size(96, 42);
             this.btnDelete.TabIndex = 6;
             this.btnDelete.Text = "Remove";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -126,49 +115,40 @@
             // lbCategories
             // 
             this.lbCategories.FormattingEnabled = true;
-            this.lbCategories.ItemHeight = 16;
-            this.lbCategories.Location = new System.Drawing.Point(376, 43);
-            this.lbCategories.Margin = new System.Windows.Forms.Padding(4);
+            this.lbCategories.Location = new System.Drawing.Point(282, 35);
             this.lbCategories.Name = "lbCategories";
-            this.lbCategories.Size = new System.Drawing.Size(192, 260);
+            this.lbCategories.Size = new System.Drawing.Size(145, 212);
             this.lbCategories.TabIndex = 7;
             // 
             // lbFeeds
             // 
             this.lbFeeds.FormattingEnabled = true;
-            this.lbFeeds.ItemHeight = 16;
-            this.lbFeeds.Location = new System.Drawing.Point(616, 44);
-            this.lbFeeds.Margin = new System.Windows.Forms.Padding(4);
+            this.lbFeeds.Location = new System.Drawing.Point(462, 36);
             this.lbFeeds.Name = "lbFeeds";
-            this.lbFeeds.Size = new System.Drawing.Size(197, 260);
+            this.lbFeeds.Size = new System.Drawing.Size(149, 212);
             this.lbFeeds.TabIndex = 8;
             // 
             // lbPodcasts
             // 
             this.lbPodcasts.FormattingEnabled = true;
-            this.lbPodcasts.ItemHeight = 16;
-            this.lbPodcasts.Location = new System.Drawing.Point(857, 44);
-            this.lbPodcasts.Margin = new System.Windows.Forms.Padding(4);
+            this.lbPodcasts.Location = new System.Drawing.Point(643, 36);
             this.lbPodcasts.Name = "lbPodcasts";
-            this.lbPodcasts.Size = new System.Drawing.Size(193, 260);
+            this.lbPodcasts.Size = new System.Drawing.Size(146, 212);
             this.lbPodcasts.TabIndex = 9;
             // 
             // lbDetailedPodcasts
             // 
             this.lbDetailedPodcasts.FormattingEnabled = true;
-            this.lbDetailedPodcasts.ItemHeight = 16;
-            this.lbDetailedPodcasts.Location = new System.Drawing.Point(1084, 44);
-            this.lbDetailedPodcasts.Margin = new System.Windows.Forms.Padding(4);
+            this.lbDetailedPodcasts.Location = new System.Drawing.Point(813, 36);
             this.lbDetailedPodcasts.Name = "lbDetailedPodcasts";
-            this.lbDetailedPodcasts.Size = new System.Drawing.Size(244, 260);
+            this.lbDetailedPodcasts.Size = new System.Drawing.Size(184, 212);
             this.lbDetailedPodcasts.TabIndex = 10;
             // 
             // btnCategoryAdd
             // 
-            this.btnCategoryAdd.Location = new System.Drawing.Point(337, 324);
-            this.btnCategoryAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCategoryAdd.Location = new System.Drawing.Point(253, 263);
             this.btnCategoryAdd.Name = "btnCategoryAdd";
-            this.btnCategoryAdd.Size = new System.Drawing.Size(128, 52);
+            this.btnCategoryAdd.Size = new System.Drawing.Size(96, 42);
             this.btnCategoryAdd.TabIndex = 11;
             this.btnCategoryAdd.Text = "Add Category";
             this.btnCategoryAdd.UseVisualStyleBackColor = true;
@@ -176,10 +156,9 @@
             // 
             // btnChangeCategory
             // 
-            this.btnChangeCategory.Location = new System.Drawing.Point(485, 323);
-            this.btnChangeCategory.Margin = new System.Windows.Forms.Padding(4);
+            this.btnChangeCategory.Location = new System.Drawing.Point(364, 262);
             this.btnChangeCategory.Name = "btnChangeCategory";
-            this.btnChangeCategory.Size = new System.Drawing.Size(128, 52);
+            this.btnChangeCategory.Size = new System.Drawing.Size(96, 42);
             this.btnChangeCategory.TabIndex = 12;
             this.btnChangeCategory.Text = "Change Category";
             this.btnChangeCategory.UseVisualStyleBackColor = true;
@@ -187,20 +166,18 @@
             // 
             // btnDeleteCategory
             // 
-            this.btnDeleteCategory.Location = new System.Drawing.Point(337, 383);
-            this.btnDeleteCategory.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDeleteCategory.Location = new System.Drawing.Point(253, 311);
             this.btnDeleteCategory.Name = "btnDeleteCategory";
-            this.btnDeleteCategory.Size = new System.Drawing.Size(128, 52);
+            this.btnDeleteCategory.Size = new System.Drawing.Size(96, 42);
             this.btnDeleteCategory.TabIndex = 13;
             this.btnDeleteCategory.Text = "Remove Category";
             this.btnDeleteCategory.UseVisualStyleBackColor = true;
             // 
             // btnShowAllFeeds
             // 
-            this.btnShowAllFeeds.Location = new System.Drawing.Point(485, 383);
-            this.btnShowAllFeeds.Margin = new System.Windows.Forms.Padding(4);
+            this.btnShowAllFeeds.Location = new System.Drawing.Point(364, 311);
             this.btnShowAllFeeds.Name = "btnShowAllFeeds";
-            this.btnShowAllFeeds.Size = new System.Drawing.Size(128, 52);
+            this.btnShowAllFeeds.Size = new System.Drawing.Size(96, 42);
             this.btnShowAllFeeds.TabIndex = 14;
             this.btnShowAllFeeds.Text = "Show All Feeds";
             this.btnShowAllFeeds.UseVisualStyleBackColor = true;
@@ -208,131 +185,110 @@
             // lblUrl
             // 
             this.lblUrl.AutoSize = true;
-            this.lblUrl.Location = new System.Drawing.Point(168, 23);
-            this.lblUrl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUrl.Location = new System.Drawing.Point(126, 19);
             this.lblUrl.Name = "lblUrl";
-            this.lblUrl.Size = new System.Drawing.Size(36, 17);
+            this.lblUrl.Size = new System.Drawing.Size(29, 13);
             this.lblUrl.TabIndex = 15;
             this.lblUrl.Text = "URL";
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(168, 73);
-            this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblName.Location = new System.Drawing.Point(126, 59);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(45, 17);
+            this.lblName.Size = new System.Drawing.Size(35, 13);
             this.lblName.TabIndex = 16;
             this.lblName.Text = "Namn";
             // 
             // lblInterval
             // 
             this.lblInterval.AutoSize = true;
-            this.lblInterval.Location = new System.Drawing.Point(159, 118);
-            this.lblInterval.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblInterval.Location = new System.Drawing.Point(119, 96);
             this.lblInterval.Name = "lblInterval";
-            this.lblInterval.Size = new System.Drawing.Size(54, 17);
+            this.lblInterval.Size = new System.Drawing.Size(42, 13);
             this.lblInterval.TabIndex = 17;
             this.lblInterval.Text = "Interval";
             // 
             // lblCategories
             // 
             this.lblCategories.AutoSize = true;
-            this.lblCategories.Location = new System.Drawing.Point(148, 182);
-            this.lblCategories.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCategories.Location = new System.Drawing.Point(111, 148);
             this.lblCategories.Name = "lblCategories";
-            this.lblCategories.Size = new System.Drawing.Size(76, 17);
+            this.lblCategories.Size = new System.Drawing.Size(57, 13);
             this.lblCategories.TabIndex = 18;
             this.lblCategories.Text = "Categories";
             // 
             // lblCategoriesAboveList
             // 
             this.lblCategoriesAboveList.AutoSize = true;
-            this.lblCategoriesAboveList.Location = new System.Drawing.Point(427, 11);
-            this.lblCategoriesAboveList.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCategoriesAboveList.Location = new System.Drawing.Point(320, 9);
             this.lblCategoriesAboveList.Name = "lblCategoriesAboveList";
-            this.lblCategoriesAboveList.Size = new System.Drawing.Size(76, 17);
+            this.lblCategoriesAboveList.Size = new System.Drawing.Size(57, 13);
             this.lblCategoriesAboveList.TabIndex = 19;
             this.lblCategoriesAboveList.Text = "Categories";
             // 
             // lblFeeds
             // 
             this.lblFeeds.AutoSize = true;
-            this.lblFeeds.Location = new System.Drawing.Point(699, 11);
-            this.lblFeeds.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFeeds.Location = new System.Drawing.Point(524, 9);
             this.lblFeeds.Name = "lblFeeds";
-            this.lblFeeds.Size = new System.Drawing.Size(47, 17);
+            this.lblFeeds.Size = new System.Drawing.Size(36, 13);
             this.lblFeeds.TabIndex = 20;
             this.lblFeeds.Text = "Feeds";
             // 
             // lblPodcasts
             // 
             this.lblPodcasts.AutoSize = true;
-            this.lblPodcasts.Location = new System.Drawing.Point(932, 11);
-            this.lblPodcasts.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPodcasts.Location = new System.Drawing.Point(699, 9);
             this.lblPodcasts.Name = "lblPodcasts";
-            this.lblPodcasts.Size = new System.Drawing.Size(66, 17);
+            this.lblPodcasts.Size = new System.Drawing.Size(51, 13);
             this.lblPodcasts.TabIndex = 21;
             this.lblPodcasts.Text = "Podcasts";
             // 
             // lblPodcastDetails
             // 
             this.lblPodcastDetails.AutoSize = true;
-            this.lblPodcastDetails.Location = new System.Drawing.Point(1147, 11);
-            this.lblPodcastDetails.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPodcastDetails.Location = new System.Drawing.Point(860, 9);
             this.lblPodcastDetails.Name = "lblPodcastDetails";
-            this.lblPodcastDetails.Size = new System.Drawing.Size(106, 17);
+            this.lblPodcastDetails.Size = new System.Drawing.Size(81, 13);
             this.lblPodcastDetails.TabIndex = 22;
             this.lblPodcastDetails.Text = "Podcast Details";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 442);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(529, 221);
-            this.dataGridView1.TabIndex = 23;
             // 
             // menuStrip1
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.dataToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1340, 28);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1005, 24);
             this.menuStrip1.TabIndex = 24;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // dataToolStripMenuItem
+            // label1
             // 
-            this.dataToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.openFileToolStripMenuItem,
-            this.saveAsToolStripMenuItem});
-            this.dataToolStripMenuItem.Name = "dataToolStripMenuItem";
-            this.dataToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
-            this.dataToolStripMenuItem.Text = "Data";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(752, 412);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 28;
+            this.label1.Text = "label1";
             // 
-            // openFileToolStripMenuItem
+            // label2
             // 
-            this.openFileToolStripMenuItem.Name = "openFileToolStripMenuItem";
-            this.openFileToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
-            this.openFileToolStripMenuItem.Text = "Open file";
-            this.openFileToolStripMenuItem.Click += new System.EventHandler(this.openFileToolStripMenuItem_Click);
-            // 
-            // saveAsToolStripMenuItem
-            // 
-            this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
-            this.saveAsToolStripMenuItem.Text = "Save as...";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(754, 439);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 29;
+            this.label2.Text = "label2";
             // 
             // MainInterfaceForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1340, 745);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(1005, 482);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblPodcastDetails);
             this.Controls.Add(this.lblPodcasts);
             this.Controls.Add(this.lblFeeds);
@@ -358,13 +314,10 @@
             this.Controls.Add(this.tbUrl);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "MainInterfaceForm";
             this.Text = "MainInterface";
             this.Load += new System.EventHandler(this.MainInterfaceForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -395,11 +348,9 @@
         private System.Windows.Forms.Label lblFeeds;
         private System.Windows.Forms.Label lblPodcasts;
         private System.Windows.Forms.Label lblPodcastDetails;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem dataToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem openFileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 
