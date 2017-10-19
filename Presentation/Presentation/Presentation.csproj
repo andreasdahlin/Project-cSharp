@@ -63,6 +63,7 @@
     <Compile Include="NewCategoryForm.Designer.cs">
       <DependentUpon>NewCategoryForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Podcast.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ChangeCategoryForm.resx">

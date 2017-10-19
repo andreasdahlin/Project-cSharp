@@ -1,13 +1,9 @@
-﻿using System;
+﻿using Logic;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
-using Logic;
+using System.Xml.Serialization;
 
 namespace Presentation
 {
@@ -45,6 +41,22 @@ namespace Presentation
         private void MainInterfaceForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void openFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openfiledialog = new OpenFileDialog();
+
+            if (openfiledialog.ShowDialog() == DialogResult.OK)
+            {
+                var path = openfiledialog.FileName;
+
+                XmlSerializer serializer = new XmlSerializer(typeof(List<Podcast>));
+                StreamReader reader = new StreamReader(path);
+
+                var input = serializer.Deserialize(reader);
+                dataGridView1.DataSource = input;
+            }
         }
     }
 }
