@@ -1,4 +1,4 @@
-﻿using Logic;
+﻿using NewLogic;
 using System;
 using System.Collections.Generic;
 using System.IO;
