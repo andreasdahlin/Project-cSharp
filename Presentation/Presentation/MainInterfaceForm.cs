@@ -57,10 +57,13 @@ namespace Presentation
             foreach (XmlNode node in nodes)
             {
                 string title = node["title"].InnerText;
-                string desc = node["description"].InnerText; 
+                string desc = node["description"].InnerText;
 
-                label1.Text = title;
-                label2.Text = desc; 
+                lbFeeds.Items.Add(title);
+                lbDetailedPodcasts.Items.Add(desc);
+
+
+
             }
         }
     }
