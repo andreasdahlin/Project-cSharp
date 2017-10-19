@@ -35,37 +35,42 @@
             // 
             // tbNewName
             // 
-            this.tbNewName.Location = new System.Drawing.Point(32, 68);
+            this.tbNewName.Location = new System.Drawing.Point(24, 55);
+            this.tbNewName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbNewName.Name = "tbNewName";
-            this.tbNewName.Size = new System.Drawing.Size(185, 22);
+            this.tbNewName.Size = new System.Drawing.Size(140, 20);
             this.tbNewName.TabIndex = 0;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(56, 119);
+            this.button1.Location = new System.Drawing.Point(42, 97);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(140, 42);
+            this.button1.Size = new System.Drawing.Size(105, 34);
             this.button1.TabIndex = 1;
             this.button1.Text = "Add new category";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // lblNewCategory
             // 
             this.lblNewCategory.AutoSize = true;
-            this.lblNewCategory.Location = new System.Drawing.Point(29, 38);
+            this.lblNewCategory.Location = new System.Drawing.Point(22, 31);
+            this.lblNewCategory.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNewCategory.Name = "lblNewCategory";
-            this.lblNewCategory.Size = new System.Drawing.Size(211, 17);
+            this.lblNewCategory.Size = new System.Drawing.Size(157, 13);
             this.lblNewCategory.TabIndex = 2;
             this.lblNewCategory.Text = "Chose a name for your category";
             // 
             // NewCategoryForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(259, 207);
+            this.ClientSize = new System.Drawing.Size(194, 168);
             this.Controls.Add(this.lblNewCategory);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tbNewName);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "NewCategoryForm";
             this.Text = "NewCategoryForm";
             this.ResumeLayout(false);

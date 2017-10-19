@@ -13,7 +13,7 @@ namespace Presentation
 {
     public partial class MainInterfaceForm : Form
     {
-        private Categories categories = new Categories();
+        public Categories categories = new Categories();
 
         public MainInterfaceForm()
         {
@@ -23,6 +23,8 @@ namespace Presentation
 
         public void LoadCategories()
         {
+            lbCategories.Items.Clear();
+
             List<CategorieObjects> list = categories.getList();
             foreach (CategorieObjects cat in list)
             {
