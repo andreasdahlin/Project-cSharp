@@ -11,7 +11,7 @@ namespace Logic
         private string name;
         public string Name { get => name; set => name = value; }
 
-        private List<CategorieObjects> categoryList = new List<CategorieObjects>();
+        public List<CategorieObjects> categoryList = new List<CategorieObjects>();
 
         public Categories()
         {
