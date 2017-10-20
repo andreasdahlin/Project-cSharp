@@ -52,14 +52,13 @@
             this.lblPodcasts = new System.Windows.Forms.Label();
             this.lblPodcastDetails = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tbUrl
             // 
             this.tbUrl.Location = new System.Drawing.Point(48, 44);
-            this.tbUrl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbUrl.Margin = new System.Windows.Forms.Padding(4);
             this.tbUrl.Name = "tbUrl";
             this.tbUrl.Size = new System.Drawing.Size(283, 22);
             this.tbUrl.TabIndex = 0;
@@ -67,7 +66,7 @@
             // tbInterval
             // 
             this.tbInterval.Location = new System.Drawing.Point(47, 139);
-            this.tbInterval.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbInterval.Margin = new System.Windows.Forms.Padding(4);
             this.tbInterval.Name = "tbInterval";
             this.tbInterval.Size = new System.Drawing.Size(283, 22);
             this.tbInterval.TabIndex = 1;
@@ -76,7 +75,7 @@
             // 
             this.cmbCategory.FormattingEnabled = true;
             this.cmbCategory.Location = new System.Drawing.Point(53, 202);
-            this.cmbCategory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbCategory.Margin = new System.Windows.Forms.Padding(4);
             this.cmbCategory.Name = "cmbCategory";
             this.cmbCategory.Size = new System.Drawing.Size(276, 24);
             this.cmbCategory.TabIndex = 2;
@@ -84,7 +83,7 @@
             // tbName
             // 
             this.tbName.Location = new System.Drawing.Point(47, 92);
-            this.tbName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbName.Margin = new System.Windows.Forms.Padding(4);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(283, 22);
             this.tbName.TabIndex = 3;
@@ -92,17 +91,18 @@
             // btnAdd
             // 
             this.btnAdd.Location = new System.Drawing.Point(47, 260);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(128, 52);
             this.btnAdd.TabIndex = 4;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnChange
             // 
             this.btnChange.Location = new System.Drawing.Point(203, 260);
-            this.btnChange.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnChange.Margin = new System.Windows.Forms.Padding(4);
             this.btnChange.Name = "btnChange";
             this.btnChange.Size = new System.Drawing.Size(128, 52);
             this.btnChange.TabIndex = 5;
@@ -112,7 +112,7 @@
             // btnDelete
             // 
             this.btnDelete.Location = new System.Drawing.Point(120, 336);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(128, 52);
             this.btnDelete.TabIndex = 6;
@@ -124,7 +124,7 @@
             this.lbCategories.FormattingEnabled = true;
             this.lbCategories.ItemHeight = 16;
             this.lbCategories.Location = new System.Drawing.Point(376, 43);
-            this.lbCategories.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lbCategories.Margin = new System.Windows.Forms.Padding(4);
             this.lbCategories.Name = "lbCategories";
             this.lbCategories.Size = new System.Drawing.Size(192, 260);
             this.lbCategories.TabIndex = 7;
@@ -134,7 +134,7 @@
             this.lbFeeds.FormattingEnabled = true;
             this.lbFeeds.ItemHeight = 16;
             this.lbFeeds.Location = new System.Drawing.Point(616, 44);
-            this.lbFeeds.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lbFeeds.Margin = new System.Windows.Forms.Padding(4);
             this.lbFeeds.Name = "lbFeeds";
             this.lbFeeds.Size = new System.Drawing.Size(197, 260);
             this.lbFeeds.TabIndex = 8;
@@ -144,7 +144,7 @@
             this.lbPodcasts.FormattingEnabled = true;
             this.lbPodcasts.ItemHeight = 16;
             this.lbPodcasts.Location = new System.Drawing.Point(857, 44);
-            this.lbPodcasts.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lbPodcasts.Margin = new System.Windows.Forms.Padding(4);
             this.lbPodcasts.Name = "lbPodcasts";
             this.lbPodcasts.Size = new System.Drawing.Size(193, 260);
             this.lbPodcasts.TabIndex = 9;
@@ -154,7 +154,7 @@
             this.lbDetailedPodcasts.FormattingEnabled = true;
             this.lbDetailedPodcasts.ItemHeight = 16;
             this.lbDetailedPodcasts.Location = new System.Drawing.Point(1084, 44);
-            this.lbDetailedPodcasts.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lbDetailedPodcasts.Margin = new System.Windows.Forms.Padding(4);
             this.lbDetailedPodcasts.Name = "lbDetailedPodcasts";
             this.lbDetailedPodcasts.Size = new System.Drawing.Size(244, 260);
             this.lbDetailedPodcasts.TabIndex = 10;
@@ -162,7 +162,7 @@
             // btnCategoryAdd
             // 
             this.btnCategoryAdd.Location = new System.Drawing.Point(337, 324);
-            this.btnCategoryAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCategoryAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnCategoryAdd.Name = "btnCategoryAdd";
             this.btnCategoryAdd.Size = new System.Drawing.Size(128, 52);
             this.btnCategoryAdd.TabIndex = 11;
@@ -173,7 +173,7 @@
             // btnChangeCategory
             // 
             this.btnChangeCategory.Location = new System.Drawing.Point(485, 322);
-            this.btnChangeCategory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnChangeCategory.Margin = new System.Windows.Forms.Padding(4);
             this.btnChangeCategory.Name = "btnChangeCategory";
             this.btnChangeCategory.Size = new System.Drawing.Size(128, 52);
             this.btnChangeCategory.TabIndex = 12;
@@ -184,7 +184,7 @@
             // btnDeleteCategory
             // 
             this.btnDeleteCategory.Location = new System.Drawing.Point(337, 383);
-            this.btnDeleteCategory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDeleteCategory.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeleteCategory.Name = "btnDeleteCategory";
             this.btnDeleteCategory.Size = new System.Drawing.Size(128, 52);
             this.btnDeleteCategory.TabIndex = 13;
@@ -194,7 +194,7 @@
             // btnShowAllFeeds
             // 
             this.btnShowAllFeeds.Location = new System.Drawing.Point(485, 383);
-            this.btnShowAllFeeds.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnShowAllFeeds.Margin = new System.Windows.Forms.Padding(4);
             this.btnShowAllFeeds.Name = "btnShowAllFeeds";
             this.btnShowAllFeeds.Size = new System.Drawing.Size(128, 52);
             this.btnShowAllFeeds.TabIndex = 14;
@@ -291,16 +291,6 @@
             this.menuStrip1.TabIndex = 24;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1003, 507);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 17);
-            this.label1.TabIndex = 28;
-            this.label1.Text = "label1";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -317,7 +307,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1340, 744);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblPodcastDetails);
             this.Controls.Add(this.lblPodcasts);
             this.Controls.Add(this.lblFeeds);
@@ -378,7 +367,6 @@
         private System.Windows.Forms.Label lblPodcasts;
         private System.Windows.Forms.Label lblPodcastDetails;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
     }
 }

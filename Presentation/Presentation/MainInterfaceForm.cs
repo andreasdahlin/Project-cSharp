@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 using System.Xml;
+using System.Xml.Serialization;
 
 namespace Presentation
 {
@@ -15,7 +16,6 @@ namespace Presentation
         {
             InitializeComponent();
             LoadCategories();
-            LoadXml();
         }
 
         public void LoadCategories()
@@ -43,27 +43,36 @@ namespace Presentation
 
         private void MainInterfaceForm_Load(object sender, EventArgs e)
         {
+            if (File.Exists("myXmlDoc.xml"))
+            {
+                XmlSerializer xs = new XmlSerializer(typeof(Information));
+                FileStream read = new FileStream("myXmlDoc.xml", FileMode.Open, FileAccess.Read, FileShare.Read);
+                Information info = (Information)xs.Deserialize(read);
 
+                tbUrl.Text = info.Url;
+                var test = tbName.Text = info.Name;
+                tbInterval.Text = info.Interval;
+
+                lbFeeds.Items.Add(test);
+            }
         }
 
-        private void LoadXml()
+        private void btnAdd_Click(object sender, EventArgs e)
         {
-            XmlDocument doc = new XmlDocument();
-            doc.Load("https://vokalnow.com/static/feeds/podcast.xml");
-
-            XmlElement root = doc.DocumentElement;
-            XmlNodeList nodes = root.SelectNodes("*");
-
-            foreach (XmlNode node in nodes)
+            try
             {
-                string title = node["title"].InnerText;
-                string desc = node["description"].InnerText;
+                Information info = new Information();
+                info.Url = tbUrl.Text;
+                info.Name = tbName.Text;
+                info.Interval = tbInterval.Text;
+                SaveXML.SaveData(info, "myXmlDoc.xml");
 
-                lbFeeds.Items.Add(title);
-                lbDetailedPodcasts.Items.Add(desc);
 
-
-
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                throw;
             }
         }
     }
