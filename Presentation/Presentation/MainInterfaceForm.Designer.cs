@@ -52,7 +52,6 @@
             this.lblPodcasts = new System.Windows.Forms.Label();
             this.lblPodcastDetails = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tbUrl
@@ -65,35 +64,38 @@
             // 
             // tbInterval
             // 
-            this.tbInterval.Location = new System.Drawing.Point(47, 139);
+            this.tbInterval.Location = new System.Drawing.Point(48, 139);
             this.tbInterval.Margin = new System.Windows.Forms.Padding(4);
             this.tbInterval.Name = "tbInterval";
-            this.tbInterval.Size = new System.Drawing.Size(283, 22);
-            this.tbInterval.TabIndex = 1;
+            this.tbInterval.Size = new System.Drawing.Size(282, 22);
+            this.tbInterval.TabIndex = 2;
             // 
             // cmbCategory
             // 
             this.cmbCategory.FormattingEnabled = true;
-            this.cmbCategory.Location = new System.Drawing.Point(53, 202);
+            this.cmbCategory.Items.AddRange(new object[] {
+            "Health",
+            "Sports"});
+            this.cmbCategory.Location = new System.Drawing.Point(48, 202);
             this.cmbCategory.Margin = new System.Windows.Forms.Padding(4);
             this.cmbCategory.Name = "cmbCategory";
-            this.cmbCategory.Size = new System.Drawing.Size(276, 24);
+            this.cmbCategory.Size = new System.Drawing.Size(281, 24);
             this.cmbCategory.TabIndex = 2;
             // 
             // tbName
             // 
-            this.tbName.Location = new System.Drawing.Point(47, 92);
+            this.tbName.Location = new System.Drawing.Point(48, 92);
             this.tbName.Margin = new System.Windows.Forms.Padding(4);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(283, 22);
-            this.tbName.TabIndex = 3;
+            this.tbName.Size = new System.Drawing.Size(282, 22);
+            this.tbName.TabIndex = 1;
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(47, 260);
+            this.btnAdd.Location = new System.Drawing.Point(48, 260);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(128, 52);
+            this.btnAdd.Size = new System.Drawing.Size(127, 52);
             this.btnAdd.TabIndex = 4;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -104,7 +106,7 @@
             this.btnChange.Location = new System.Drawing.Point(203, 260);
             this.btnChange.Margin = new System.Windows.Forms.Padding(4);
             this.btnChange.Name = "btnChange";
-            this.btnChange.Size = new System.Drawing.Size(128, 52);
+            this.btnChange.Size = new System.Drawing.Size(127, 52);
             this.btnChange.TabIndex = 5;
             this.btnChange.Text = "Change";
             this.btnChange.UseVisualStyleBackColor = true;
@@ -291,22 +293,11 @@
             this.menuStrip1.TabIndex = 24;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(1005, 540);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 17);
-            this.label2.TabIndex = 29;
-            this.label2.Text = "label2";
-            // 
             // MainInterfaceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1340, 744);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.lblPodcastDetails);
             this.Controls.Add(this.lblPodcasts);
             this.Controls.Add(this.lblFeeds);
@@ -335,7 +326,6 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MainInterfaceForm";
             this.Text = "MainInterface";
-            this.Load += new System.EventHandler(this.MainInterfaceForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -367,7 +357,6 @@
         private System.Windows.Forms.Label lblPodcasts;
         private System.Windows.Forms.Label lblPodcastDetails;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.Label label2;
     }
 }
 

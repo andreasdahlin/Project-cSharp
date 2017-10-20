@@ -8,7 +8,9 @@ namespace Presentation
 {
     public class Podcast
     {
-        public string title { get; set; }
-        public string description { get; set; }
+        public string url { get; set; }
+        public string name { get; set; }
+        public string interval { get; set; }
+        public string category { get; set; }
     }
 }

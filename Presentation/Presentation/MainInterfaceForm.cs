@@ -11,6 +11,7 @@ namespace Presentation
     public partial class MainInterfaceForm : Form
     {
         public Categories categories = new Categories();
+        List<Podcast> podcasts = new List<Podcast>();
 
         public MainInterfaceForm()
         {
@@ -41,38 +42,33 @@ namespace Presentation
             newChangeCategoryForm.Show();
         }
 
-        private void MainInterfaceForm_Load(object sender, EventArgs e)
+        private Podcast AddNewPodcast(string url, string name, string interval, string category)
         {
-            if (File.Exists("myXmlDoc.xml"))
-            {
-                XmlSerializer xs = new XmlSerializer(typeof(Information));
-                FileStream read = new FileStream("myXmlDoc.xml", FileMode.Open, FileAccess.Read, FileShare.Read);
-                Information info = (Information)xs.Deserialize(read);
-
-                tbUrl.Text = info.Url;
-                var test = tbName.Text = info.Name;
-                tbInterval.Text = info.Interval;
-
-                lbFeeds.Items.Add(test);
-            }
+            Podcast podcast = new Podcast { url = url, name = name, interval = interval, category = category };
+            return podcast;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            try
+            string url = tbUrl.Text;
+            string name = tbName.Text;
+            string interval = tbInterval.Text;
+            string category = cmbCategory.SelectedItem.ToString();
+
+            
+            Podcast podcast = AddNewPodcast(url, name, interval, category);
+            podcasts.Add(podcast);
+
+            var serializer = new XmlSerializer(typeof(List<Podcast>));
+
+            using (var stream = new StreamWriter("podcasts.xml")) // Skapar XML filen.
             {
-                Information info = new Information();
-                info.Url = tbUrl.Text;
-                info.Name = tbName.Text;
-                info.Interval = tbInterval.Text;
-                SaveXML.SaveData(info, "myXmlDoc.xml");
-
-
+                serializer.Serialize(stream, podcasts);
             }
-            catch (Exception ex)
+
+            using (var stream = new StreamReader("podcasts.xml")) // Läser från XML filen.
             {
-                MessageBox.Show(ex.Message);
-                throw;
+                var dePodcasts = (List<Podcast>)serializer.Deserialize(stream);
             }
         }
     }
