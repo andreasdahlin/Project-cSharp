@@ -55,7 +55,6 @@ namespace Presentation
             string interval = tbInterval.Text;
             string category = cmbCategory.SelectedItem.ToString();
 
-            
             Podcast podcast = AddNewPodcast(url, name, interval, category);
             podcasts.Add(podcast);
 
@@ -70,6 +69,11 @@ namespace Presentation
             {
                 var dePodcasts = (List<Podcast>)serializer.Deserialize(stream);
             }
+        }
+
+        private void lbCategories_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
