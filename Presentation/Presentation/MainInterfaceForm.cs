@@ -14,6 +14,7 @@ namespace Presentation
         public Categories categories = new Categories();
         private List<Podcast> podcasts = new List<Podcast>();
         private string newUrl = "";
+        private string newestText = "";
         private string choosedXml = "";
 
         public MainInterfaceForm()
@@ -49,6 +50,11 @@ namespace Presentation
         public void ClearRichTextBox()
         {
             rtbDetails.Text = "";
+        }
+
+        public void ClearListBox()
+        {
+            lbFeeds.Items.Clear();
         }
 
         public void LoadCategories()
@@ -101,7 +107,9 @@ namespace Presentation
             {
                 var dePodcasts = (List<Podcast>)serializer.Deserialize(stream);
             }
- 
+            ClearListBox();
+            GetInformation();
+            
         }
 
         private void lbCategories_SelectedIndexChanged(object sender, EventArgs e)
@@ -120,32 +128,57 @@ namespace Presentation
                 xml = client.DownloadString("podcasts.xml");
             }
 
-            var dom = new XmlDocument();
-            dom.LoadXml(xml);
+            var textDom = new XmlDocument();
+            textDom.LoadXml(xml);
 
             foreach (XmlNode item
-                in dom.DocumentElement.SelectNodes("Podcast"))
+                in textDom.DocumentElement.SelectNodes("Podcast"))
             {
-          
-                var url = item.SelectSingleNode("url");
-                newUrl = url.InnerText;
+
+                var newText = item.SelectSingleNode("name");
+                newestText = newText.InnerText;
+                if (text == newestText)
+                
+                    break;
+                
             }
 
-            using (var client = new System.Net.WebClient())
-            {
-                client.Encoding = Encoding.UTF8;
-                choosedXml = client.DownloadString(newUrl);
-            }
-
-            var newDom = new XmlDocument();
-            newDom.LoadXml(choosedXml);
-
-            foreach (XmlNode item
-                in newDom.DocumentElement.SelectNodes("channel/item"))
+            if (text == newestText)
             {
 
-                var title = item.SelectSingleNode("title");
-                lbPodcasts.Items.Add(title.InnerText);
+                using (var client = new System.Net.WebClient())
+                {
+                    client.Encoding = Encoding.UTF8;
+                    xml = client.DownloadString("podcasts.xml");
+                }
+
+                var dom = new XmlDocument();
+                dom.LoadXml(xml);
+
+                foreach (XmlNode item
+                    in dom.DocumentElement.SelectNodes("Podcast"))
+                {
+
+                    var url = item.SelectSingleNode("url");
+                    newUrl = url.InnerText;
+                }
+
+                using (var client = new System.Net.WebClient())
+                {
+                    client.Encoding = Encoding.UTF8;
+                    choosedXml = client.DownloadString(newUrl);
+                }
+
+                var newDom = new XmlDocument();
+                newDom.LoadXml(choosedXml);
+
+                foreach (XmlNode item
+                    in newDom.DocumentElement.SelectNodes("channel/item"))
+                {
+
+                    var title = item.SelectSingleNode("title");
+                    lbPodcasts.Items.Add(title.InnerText);
+                }
             }
         }
 
