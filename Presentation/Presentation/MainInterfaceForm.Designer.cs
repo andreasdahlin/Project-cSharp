@@ -38,7 +38,6 @@
             this.lbCategories = new System.Windows.Forms.ListBox();
             this.lbFeeds = new System.Windows.Forms.ListBox();
             this.lbPodcasts = new System.Windows.Forms.ListBox();
-            this.lbDetailedPodcasts = new System.Windows.Forms.ListBox();
             this.btnCategoryAdd = new System.Windows.Forms.Button();
             this.btnChangeCategory = new System.Windows.Forms.Button();
             this.btnDeleteCategory = new System.Windows.Forms.Button();
@@ -53,6 +52,8 @@
             this.lblPodcastDetails = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.btnAddPodcast = new System.Windows.Forms.Button();
+            this.rtbDetails = new System.Windows.Forms.RichTextBox();
+            this.btnAddDetails = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tbUrl
@@ -152,16 +153,6 @@
             this.lbPodcasts.Name = "lbPodcasts";
             this.lbPodcasts.Size = new System.Drawing.Size(526, 260);
             this.lbPodcasts.TabIndex = 9;
-            // 
-            // lbDetailedPodcasts
-            // 
-            this.lbDetailedPodcasts.FormattingEnabled = true;
-            this.lbDetailedPodcasts.ItemHeight = 16;
-            this.lbDetailedPodcasts.Location = new System.Drawing.Point(857, 353);
-            this.lbDetailedPodcasts.Margin = new System.Windows.Forms.Padding(4);
-            this.lbDetailedPodcasts.Name = "lbDetailedPodcasts";
-            this.lbDetailedPodcasts.Size = new System.Drawing.Size(526, 260);
-            this.lbDetailedPodcasts.TabIndex = 10;
             // 
             // btnCategoryAdd
             // 
@@ -278,7 +269,7 @@
             // lblPodcastDetails
             // 
             this.lblPodcastDetails.AutoSize = true;
-            this.lblPodcastDetails.Location = new System.Drawing.Point(1069, 322);
+            this.lblPodcastDetails.Location = new System.Drawing.Point(1081, 371);
             this.lblPodcastDetails.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPodcastDetails.Name = "lblPodcastDetails";
             this.lblPodcastDetails.Size = new System.Drawing.Size(106, 17);
@@ -305,11 +296,31 @@
             this.btnAddPodcast.UseVisualStyleBackColor = true;
             this.btnAddPodcast.Click += new System.EventHandler(this.btnAddPodcast_Click);
             // 
+            // rtbDetails
+            // 
+            this.rtbDetails.Location = new System.Drawing.Point(851, 408);
+            this.rtbDetails.Name = "rtbDetails";
+            this.rtbDetails.Size = new System.Drawing.Size(532, 265);
+            this.rtbDetails.TabIndex = 26;
+            this.rtbDetails.Text = "";
+            // 
+            // btnAddDetails
+            // 
+            this.btnAddDetails.Location = new System.Drawing.Point(1043, 326);
+            this.btnAddDetails.Name = "btnAddDetails";
+            this.btnAddDetails.Size = new System.Drawing.Size(184, 32);
+            this.btnAddDetails.TabIndex = 27;
+            this.btnAddDetails.Text = "button1";
+            this.btnAddDetails.UseVisualStyleBackColor = true;
+            this.btnAddDetails.Click += new System.EventHandler(this.btnAddDetails_Click);
+            // 
             // MainInterfaceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1458, 702);
+            this.Controls.Add(this.btnAddDetails);
+            this.Controls.Add(this.rtbDetails);
             this.Controls.Add(this.btnAddPodcast);
             this.Controls.Add(this.lblPodcastDetails);
             this.Controls.Add(this.lblPodcasts);
@@ -323,7 +334,6 @@
             this.Controls.Add(this.btnDeleteCategory);
             this.Controls.Add(this.btnChangeCategory);
             this.Controls.Add(this.btnCategoryAdd);
-            this.Controls.Add(this.lbDetailedPodcasts);
             this.Controls.Add(this.lbPodcasts);
             this.Controls.Add(this.lbFeeds);
             this.Controls.Add(this.lbCategories);
@@ -356,7 +366,6 @@
         private System.Windows.Forms.ListBox lbCategories;
         private System.Windows.Forms.ListBox lbFeeds;
         private System.Windows.Forms.ListBox lbPodcasts;
-        private System.Windows.Forms.ListBox lbDetailedPodcasts;
         private System.Windows.Forms.Button btnCategoryAdd;
         private System.Windows.Forms.Button btnChangeCategory;
         private System.Windows.Forms.Button btnDeleteCategory;
@@ -371,6 +380,8 @@
         private System.Windows.Forms.Label lblPodcastDetails;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.Button btnAddPodcast;
+        private System.Windows.Forms.RichTextBox rtbDetails;
+        private System.Windows.Forms.Button btnAddDetails;
     }
 }
 

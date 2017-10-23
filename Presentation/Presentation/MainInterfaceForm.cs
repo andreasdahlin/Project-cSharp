@@ -12,7 +12,9 @@ namespace Presentation
     public partial class MainInterfaceForm : Form
     {
         public Categories categories = new Categories();
-        List<Podcast> podcasts = new List<Podcast>();
+        private List<Podcast> podcasts = new List<Podcast>();
+        private string newUrl = "";
+        private string choosedXml = "";
 
         public MainInterfaceForm()
         {
@@ -23,7 +25,6 @@ namespace Presentation
 
         public void GetInformation()
         {
-            //Ladda hem XML.
             var xml = "";
             using (var client = new System.Net.WebClient())
             {
@@ -31,22 +32,23 @@ namespace Presentation
                 xml = client.DownloadString("podcasts.xml");
             }
 
-            //Skapa en objektrepresentation.
             var dom = new XmlDocument();
             dom.LoadXml(xml);
 
-            //Iterera igenom elementet item.
             foreach (XmlNode item
                 in dom.DocumentElement.SelectNodes("Podcast"))
             {
-                //Skriv ut dess titel.
+ 
                 var name = item.SelectSingleNode("name");
                 
                 lbFeeds.Items.Add(name.InnerText);
             }
 
-            
+        }
 
+        public void ClearRichTextBox()
+        {
+            rtbDetails.Text = "";
         }
 
         public void LoadCategories()
@@ -99,8 +101,7 @@ namespace Presentation
             {
                 var dePodcasts = (List<Podcast>)serializer.Deserialize(stream);
             }
-
-            
+ 
         }
 
         private void lbCategories_SelectedIndexChanged(object sender, EventArgs e)
@@ -111,9 +112,7 @@ namespace Presentation
         private void btnAddPodcast_Click(object sender, EventArgs e)
         {
             string text = lbFeeds.GetItemText(lbFeeds.SelectedItem);
-            string newUrl = "";
             var xml = "";
-            var choosedXml = "";
 
             using (var client = new System.Net.WebClient())
             {
@@ -121,15 +120,13 @@ namespace Presentation
                 xml = client.DownloadString("podcasts.xml");
             }
 
-            //Skapa en objektrepresentation.
             var dom = new XmlDocument();
             dom.LoadXml(xml);
 
-            //Iterera igenom elementet item.
             foreach (XmlNode item
                 in dom.DocumentElement.SelectNodes("Podcast"))
             {
-                //Skriv ut dess titel.
+          
                 var url = item.SelectSingleNode("url");
                 newUrl = url.InnerText;
             }
@@ -140,18 +137,53 @@ namespace Presentation
                 choosedXml = client.DownloadString(newUrl);
             }
 
-            //Skapa en objektrepresentation.
             var newDom = new XmlDocument();
             newDom.LoadXml(choosedXml);
 
-            //Iterera igenom elementet item.
             foreach (XmlNode item
                 in newDom.DocumentElement.SelectNodes("channel/item"))
             {
-                //Skriv ut dess titel.
+
                 var title = item.SelectSingleNode("title");
                 lbPodcasts.Items.Add(title.InnerText);
             }
+        }
+
+        private void btnAddDetails_Click(object sender, EventArgs e)
+        {
+            ClearRichTextBox();
+            string text = lbPodcasts.GetItemText(lbPodcasts.SelectedItem);
+            var xml = "";
+   
+
+            using (var client = new System.Net.WebClient())
+            {
+                client.Encoding = Encoding.UTF8;
+                xml = client.DownloadString(newUrl);
+            }
+
+            var newDomTest = new XmlDocument();
+            newDomTest.LoadXml(xml);
+
+            foreach (XmlNode item
+                in newDomTest.DocumentElement.SelectNodes("channel/item"))
+            {
+
+                var titleName = item.SelectSingleNode("title");
+                string specTitle = titleName.InnerText;
+
+                if (specTitle == text)
+                {
+                    var date = item.SelectSingleNode("pubDate");
+                    var newDesc = item.SelectSingleNode("description");
+                    var link = item.SelectSingleNode("link");
+                    rtbDetails.AppendText("Släpptes: \n" + date.InnerText + " \n \n" + "Om avsnittet: \n" + newDesc.InnerText + "\n \n" + "Länk till avsnitt: \n" + link.InnerText);
+                }
+            }
+
+    
+
+
         }
     }
 }
