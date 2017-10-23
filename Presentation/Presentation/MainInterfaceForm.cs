@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Serialization;
@@ -17,6 +18,35 @@ namespace Presentation
         {
             InitializeComponent();
             LoadCategories();
+            GetInformation();
+        }
+
+        public void GetInformation()
+        {
+            //Ladda hem XML.
+            var xml = "";
+            using (var client = new System.Net.WebClient())
+            {
+                client.Encoding = Encoding.UTF8;
+                xml = client.DownloadString("podcasts.xml");
+            }
+
+            //Skapa en objektrepresentation.
+            var dom = new XmlDocument();
+            dom.LoadXml(xml);
+
+            //Iterera igenom elementet item.
+            foreach (XmlNode item
+                in dom.DocumentElement.SelectNodes("Podcast"))
+            {
+                //Skriv ut dess titel.
+                var name = item.SelectSingleNode("name");
+                
+                lbFeeds.Items.Add(name.InnerText);
+            }
+
+            
+
         }
 
         public void LoadCategories()
@@ -69,11 +99,59 @@ namespace Presentation
             {
                 var dePodcasts = (List<Podcast>)serializer.Deserialize(stream);
             }
+
+            
         }
 
         private void lbCategories_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnAddPodcast_Click(object sender, EventArgs e)
+        {
+            string text = lbFeeds.GetItemText(lbFeeds.SelectedItem);
+            string newUrl = "";
+            var xml = "";
+            var choosedXml = "";
+
+            using (var client = new System.Net.WebClient())
+            {
+                client.Encoding = Encoding.UTF8;
+                xml = client.DownloadString("podcasts.xml");
+            }
+
+            //Skapa en objektrepresentation.
+            var dom = new XmlDocument();
+            dom.LoadXml(xml);
+
+            //Iterera igenom elementet item.
+            foreach (XmlNode item
+                in dom.DocumentElement.SelectNodes("Podcast"))
+            {
+                //Skriv ut dess titel.
+                var url = item.SelectSingleNode("url");
+                newUrl = url.InnerText;
+            }
+
+            using (var client = new System.Net.WebClient())
+            {
+                client.Encoding = Encoding.UTF8;
+                choosedXml = client.DownloadString(newUrl);
+            }
+
+            //Skapa en objektrepresentation.
+            var newDom = new XmlDocument();
+            newDom.LoadXml(choosedXml);
+
+            //Iterera igenom elementet item.
+            foreach (XmlNode item
+                in newDom.DocumentElement.SelectNodes("channel/item"))
+            {
+                //Skriv ut dess titel.
+                var title = item.SelectSingleNode("title");
+                lbPodcasts.Items.Add(title.InnerText);
+            }
         }
     }
 }

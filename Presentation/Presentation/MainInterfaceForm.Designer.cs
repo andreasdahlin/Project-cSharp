@@ -52,6 +52,7 @@
             this.lblPodcasts = new System.Windows.Forms.Label();
             this.lblPodcastDetails = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.btnAddPodcast = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tbUrl
@@ -149,17 +150,17 @@
             this.lbPodcasts.Location = new System.Drawing.Point(857, 44);
             this.lbPodcasts.Margin = new System.Windows.Forms.Padding(4);
             this.lbPodcasts.Name = "lbPodcasts";
-            this.lbPodcasts.Size = new System.Drawing.Size(193, 260);
+            this.lbPodcasts.Size = new System.Drawing.Size(526, 260);
             this.lbPodcasts.TabIndex = 9;
             // 
             // lbDetailedPodcasts
             // 
             this.lbDetailedPodcasts.FormattingEnabled = true;
             this.lbDetailedPodcasts.ItemHeight = 16;
-            this.lbDetailedPodcasts.Location = new System.Drawing.Point(1084, 44);
+            this.lbDetailedPodcasts.Location = new System.Drawing.Point(857, 353);
             this.lbDetailedPodcasts.Margin = new System.Windows.Forms.Padding(4);
             this.lbDetailedPodcasts.Name = "lbDetailedPodcasts";
-            this.lbDetailedPodcasts.Size = new System.Drawing.Size(244, 260);
+            this.lbDetailedPodcasts.Size = new System.Drawing.Size(526, 260);
             this.lbDetailedPodcasts.TabIndex = 10;
             // 
             // btnCategoryAdd
@@ -277,7 +278,7 @@
             // lblPodcastDetails
             // 
             this.lblPodcastDetails.AutoSize = true;
-            this.lblPodcastDetails.Location = new System.Drawing.Point(1147, 11);
+            this.lblPodcastDetails.Location = new System.Drawing.Point(1069, 322);
             this.lblPodcastDetails.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPodcastDetails.Name = "lblPodcastDetails";
             this.lblPodcastDetails.Size = new System.Drawing.Size(106, 17);
@@ -290,15 +291,26 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1353, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1458, 24);
             this.menuStrip1.TabIndex = 24;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // btnAddPodcast
+            // 
+            this.btnAddPodcast.Location = new System.Drawing.Point(670, 336);
+            this.btnAddPodcast.Name = "btnAddPodcast";
+            this.btnAddPodcast.Size = new System.Drawing.Size(75, 23);
+            this.btnAddPodcast.TabIndex = 25;
+            this.btnAddPodcast.Text = "Add Podcast";
+            this.btnAddPodcast.UseVisualStyleBackColor = true;
+            this.btnAddPodcast.Click += new System.EventHandler(this.btnAddPodcast_Click);
             // 
             // MainInterfaceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1353, 469);
+            this.ClientSize = new System.Drawing.Size(1458, 702);
+            this.Controls.Add(this.btnAddPodcast);
             this.Controls.Add(this.lblPodcastDetails);
             this.Controls.Add(this.lblPodcasts);
             this.Controls.Add(this.lblFeeds);
@@ -358,6 +370,7 @@
         private System.Windows.Forms.Label lblPodcasts;
         private System.Windows.Forms.Label lblPodcastDetails;
         private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.Button btnAddPodcast;
     }
 }
 
