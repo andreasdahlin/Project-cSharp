@@ -288,7 +288,7 @@
             // 
             this.btnAddPodcast.Location = new System.Drawing.Point(670, 336);
             this.btnAddPodcast.Name = "btnAddPodcast";
-            this.btnAddPodcast.Size = new System.Drawing.Size(115, 40);
+            this.btnAddPodcast.Size = new System.Drawing.Size(143, 40);
             this.btnAddPodcast.TabIndex = 25;
             this.btnAddPodcast.Text = "Show Podcasts";
             this.btnAddPodcast.UseVisualStyleBackColor = true;
