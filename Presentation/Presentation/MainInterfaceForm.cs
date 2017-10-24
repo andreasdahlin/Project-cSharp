@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Net;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml;
@@ -16,6 +17,12 @@ namespace Presentation
         private string newUrl = "";
         private string newestText = "";
         private string choosedXml = "";
+        private string url = "";
+        private string newMp3Text = "";
+
+
+
+
 
         public MainInterfaceForm()
         {
@@ -55,6 +62,12 @@ namespace Presentation
         public void ClearListBox()
         {
             lbFeeds.Items.Clear();
+
+        }
+
+        public void ClearListBoxTwo()
+        {
+            lbPodcasts.Items.Clear();
         }
 
         public void LoadCategories()
@@ -119,6 +132,7 @@ namespace Presentation
 
         private void btnAddPodcast_Click(object sender, EventArgs e)
         {
+            ClearListBoxTwo();
             string text = lbFeeds.GetItemText(lbFeeds.SelectedItem);
             var xml = "";
 
@@ -130,7 +144,7 @@ namespace Presentation
 
             var textDom = new XmlDocument();
             textDom.LoadXml(xml);
-
+            
             foreach (XmlNode item
                 in textDom.DocumentElement.SelectNodes("Podcast"))
             {
@@ -138,35 +152,39 @@ namespace Presentation
                 var newText = item.SelectSingleNode("name");
                 newestText = newText.InnerText;
                 if (text == newestText)
-                
+                {
+                    url = item.SelectSingleNode("url").InnerText;
+
                     break;
-                
+                }
+
             }
+            // gör nått
 
-            if (text == newestText)
-            {
+
+                //using (var client = new System.Net.WebClient())
+                //{
+                //    client.Encoding = Encoding.UTF8;
+                //    xml = client.DownloadString("podcasts.xml");
+                //}
+
+                //var dom = new XmlDocument();
+                //dom.LoadXml(xml);
+
+                //foreach (XmlNode item
+                //    in dom.DocumentElement.SelectNodes("Podcast"))
+                //{
+                    
+                //        var url = item.SelectSingleNode("url");
+                //        newUrl = url.InnerText;
+                     
+                    
+                //}
 
                 using (var client = new System.Net.WebClient())
                 {
                     client.Encoding = Encoding.UTF8;
-                    xml = client.DownloadString("podcasts.xml");
-                }
-
-                var dom = new XmlDocument();
-                dom.LoadXml(xml);
-
-                foreach (XmlNode item
-                    in dom.DocumentElement.SelectNodes("Podcast"))
-                {
-
-                    var url = item.SelectSingleNode("url");
-                    newUrl = url.InnerText;
-                }
-
-                using (var client = new System.Net.WebClient())
-                {
-                    client.Encoding = Encoding.UTF8;
-                    choosedXml = client.DownloadString(newUrl);
+                    choosedXml = client.DownloadString(url);
                 }
 
                 var newDom = new XmlDocument();
@@ -179,8 +197,10 @@ namespace Presentation
                     var title = item.SelectSingleNode("title");
                     lbPodcasts.Items.Add(title.InnerText);
                 }
-            }
         }
+
+
+
 
         private void btnAddDetails_Click(object sender, EventArgs e)
         {
@@ -192,7 +212,7 @@ namespace Presentation
             using (var client = new System.Net.WebClient())
             {
                 client.Encoding = Encoding.UTF8;
-                xml = client.DownloadString(newUrl);
+                xml = client.DownloadString(url);
             }
 
             var newDomTest = new XmlDocument();
@@ -210,12 +230,37 @@ namespace Presentation
                     var date = item.SelectSingleNode("pubDate");
                     var newDesc = item.SelectSingleNode("description");
                     var link = item.SelectSingleNode("link");
-                    rtbDetails.AppendText("Släpptes: \n" + date.InnerText + " \n \n" + "Om avsnittet: \n" + newDesc.InnerText + "\n \n" + "Länk till avsnitt: \n" + link.InnerText);
+                    var mp3 = item.SelectSingleNode("enclosure[@url]");
+                    if (mp3 != null)
+                    {
+                        string mp3Text = mp3.OuterXml;
+                        Char Delimiter = '"';
+                        String[] substrings = mp3Text.Split(Delimiter);
+                        newMp3Text = substrings[1];
+                    }
+                    rtbDetails.AppendText("Släpptes: \n" + date.InnerText + " \n \n" + "Om avsnittet: \n" + newDesc.InnerText + "\n \n" + "Länk till avsnitt: \n" + link.InnerText + "\n" );
                 }
             }
 
-    
+        }
 
+        private void btnDownload_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (var client = new WebClient())
+                {
+                    client.DownloadFile(newMp3Text, "podcast.mp3");
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Det finns ingen fil att ladda ner.");
+            }
+        }
+
+        private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }

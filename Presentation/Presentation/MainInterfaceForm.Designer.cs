@@ -54,6 +54,7 @@
             this.btnAddPodcast = new System.Windows.Forms.Button();
             this.rtbDetails = new System.Windows.Forms.RichTextBox();
             this.btnAddDetails = new System.Windows.Forms.Button();
+            this.btnDownload = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tbUrl
@@ -75,14 +76,12 @@
             // cmbCategory
             // 
             this.cmbCategory.FormattingEnabled = true;
-            this.cmbCategory.Items.AddRange(new object[] {
-            "Health",
-            "Sports"});
             this.cmbCategory.Location = new System.Drawing.Point(48, 202);
             this.cmbCategory.Margin = new System.Windows.Forms.Padding(4);
             this.cmbCategory.Name = "cmbCategory";
             this.cmbCategory.Size = new System.Drawing.Size(281, 24);
             this.cmbCategory.TabIndex = 2;
+            this.cmbCategory.SelectedIndexChanged += new System.EventHandler(this.cmbCategory_SelectedIndexChanged);
             // 
             // tbName
             // 
@@ -314,11 +313,22 @@
             this.btnAddDetails.UseVisualStyleBackColor = true;
             this.btnAddDetails.Click += new System.EventHandler(this.btnAddDetails_Click);
             // 
+            // btnDownload
+            // 
+            this.btnDownload.Location = new System.Drawing.Point(702, 623);
+            this.btnDownload.Name = "btnDownload";
+            this.btnDownload.Size = new System.Drawing.Size(119, 23);
+            this.btnDownload.TabIndex = 28;
+            this.btnDownload.Text = "Download";
+            this.btnDownload.UseVisualStyleBackColor = true;
+            this.btnDownload.Click += new System.EventHandler(this.btnDownload_Click);
+            // 
             // MainInterfaceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1458, 702);
+            this.Controls.Add(this.btnDownload);
             this.Controls.Add(this.btnAddDetails);
             this.Controls.Add(this.rtbDetails);
             this.Controls.Add(this.btnAddPodcast);
@@ -382,6 +392,7 @@
         private System.Windows.Forms.Button btnAddPodcast;
         private System.Windows.Forms.RichTextBox rtbDetails;
         private System.Windows.Forms.Button btnAddDetails;
+        private System.Windows.Forms.Button btnDownload;
     }
 }
 
