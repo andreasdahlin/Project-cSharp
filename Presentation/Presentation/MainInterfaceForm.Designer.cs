@@ -131,7 +131,6 @@
             this.lbCategories.Name = "lbCategories";
             this.lbCategories.Size = new System.Drawing.Size(192, 260);
             this.lbCategories.TabIndex = 7;
-            this.lbCategories.SelectedIndexChanged += new System.EventHandler(this.lbCategories_SelectedIndexChanged);
             // 
             // lbFeeds
             // 
@@ -289,9 +288,9 @@
             // 
             this.btnAddPodcast.Location = new System.Drawing.Point(670, 336);
             this.btnAddPodcast.Name = "btnAddPodcast";
-            this.btnAddPodcast.Size = new System.Drawing.Size(75, 23);
+            this.btnAddPodcast.Size = new System.Drawing.Size(115, 40);
             this.btnAddPodcast.TabIndex = 25;
-            this.btnAddPodcast.Text = "Add Podcast";
+            this.btnAddPodcast.Text = "Show Podcasts";
             this.btnAddPodcast.UseVisualStyleBackColor = true;
             this.btnAddPodcast.Click += new System.EventHandler(this.btnAddPodcast_Click);
             // 
@@ -309,7 +308,7 @@
             this.btnAddDetails.Name = "btnAddDetails";
             this.btnAddDetails.Size = new System.Drawing.Size(184, 32);
             this.btnAddDetails.TabIndex = 27;
-            this.btnAddDetails.Text = "button1";
+            this.btnAddDetails.Text = "Show Details";
             this.btnAddDetails.UseVisualStyleBackColor = true;
             this.btnAddDetails.Click += new System.EventHandler(this.btnAddDetails_Click);
             // 

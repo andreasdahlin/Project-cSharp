@@ -125,11 +125,6 @@ namespace Presentation
             
         }
 
-        private void lbCategories_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnAddPodcast_Click(object sender, EventArgs e)
         {
             ClearListBoxTwo();
@@ -159,27 +154,7 @@ namespace Presentation
                 }
 
             }
-            // gör nått
-
-
-                //using (var client = new System.Net.WebClient())
-                //{
-                //    client.Encoding = Encoding.UTF8;
-                //    xml = client.DownloadString("podcasts.xml");
-                //}
-
-                //var dom = new XmlDocument();
-                //dom.LoadXml(xml);
-
-                //foreach (XmlNode item
-                //    in dom.DocumentElement.SelectNodes("Podcast"))
-                //{
-                    
-                //        var url = item.SelectSingleNode("url");
-                //        newUrl = url.InnerText;
-                     
-                    
-                //}
+          
 
                 using (var client = new System.Net.WebClient())
                 {
