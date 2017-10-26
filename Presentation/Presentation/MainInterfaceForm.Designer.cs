@@ -34,7 +34,6 @@
             this.tbName = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnChange = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.lbCategories = new System.Windows.Forms.ListBox();
             this.lbFeeds = new System.Windows.Forms.ListBox();
             this.lbPodcasts = new System.Windows.Forms.ListBox();
@@ -55,6 +54,7 @@
             this.rtbDetails = new System.Windows.Forms.RichTextBox();
             this.btnAddDetails = new System.Windows.Forms.Button();
             this.btnDownload = new System.Windows.Forms.Button();
+            this.btnDeleteFeed = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tbUrl
@@ -110,16 +110,7 @@
             this.btnChange.TabIndex = 5;
             this.btnChange.Text = "Change";
             this.btnChange.UseVisualStyleBackColor = true;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(120, 336);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(128, 52);
-            this.btnDelete.TabIndex = 6;
-            this.btnDelete.Text = "Remove";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnChange.Click += new System.EventHandler(this.btnChange_Click);
             // 
             // lbCategories
             // 
@@ -322,11 +313,22 @@
             this.btnDownload.UseVisualStyleBackColor = true;
             this.btnDownload.Click += new System.EventHandler(this.btnDownload_Click);
             // 
+            // btnDeleteFeed
+            // 
+            this.btnDeleteFeed.Location = new System.Drawing.Point(137, 358);
+            this.btnDeleteFeed.Name = "btnDeleteFeed";
+            this.btnDeleteFeed.Size = new System.Drawing.Size(101, 42);
+            this.btnDeleteFeed.TabIndex = 29;
+            this.btnDeleteFeed.Text = "Delete";
+            this.btnDeleteFeed.UseVisualStyleBackColor = true;
+            this.btnDeleteFeed.Click += new System.EventHandler(this.btnDeleteFeed_Click);
+            // 
             // MainInterfaceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1458, 702);
+            this.Controls.Add(this.btnDeleteFeed);
             this.Controls.Add(this.btnDownload);
             this.Controls.Add(this.btnAddDetails);
             this.Controls.Add(this.rtbDetails);
@@ -346,7 +348,6 @@
             this.Controls.Add(this.lbPodcasts);
             this.Controls.Add(this.lbFeeds);
             this.Controls.Add(this.lbCategories);
-            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnChange);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.tbName);
@@ -371,7 +372,6 @@
         private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnChange;
-        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.ListBox lbCategories;
         private System.Windows.Forms.ListBox lbFeeds;
         private System.Windows.Forms.ListBox lbPodcasts;
@@ -392,6 +392,7 @@
         private System.Windows.Forms.RichTextBox rtbDetails;
         private System.Windows.Forms.Button btnAddDetails;
         private System.Windows.Forms.Button btnDownload;
+        private System.Windows.Forms.Button btnDeleteFeed;
     }
 }
 

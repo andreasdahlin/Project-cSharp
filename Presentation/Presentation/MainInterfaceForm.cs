@@ -323,5 +323,17 @@ namespace Presentation
 
             }
         }
+
+        private void btnChange_Click(object sender, EventArgs e)
+        {
+            var newForm = new ChangeFeedForm();
+            newForm.Show();
+        }
+
+        private void btnDeleteFeed_Click(object sender, EventArgs e)
+        {
+            var newForm = new RemoveFeedForm();
+            newForm.Show();
+        }
     }
 }
