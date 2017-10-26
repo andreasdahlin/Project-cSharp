@@ -17,7 +17,7 @@ namespace Presentation
 {
     public partial class NewCategoryForm : Form
     {
-        private MainInterfaceForm mainForm = new MainInterfaceForm();
+        
         private XmlSerializer serializer = new XmlSerializer(typeof(List<Categories>));
         private List<Categories> categories = new List<Categories>();
 
@@ -43,19 +43,20 @@ namespace Presentation
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
             string category = tbNewName.Text;
             Categories categoryNew = AddNewCategory(category);
             categories.Add(categoryNew);
+           
 
 
             using (var stream = new StreamWriter("categories.xml")) // Skapar XML filen.
             {
                 serializer.Serialize(stream, categories);
             }
+            
 
-         
         }
-
     }
 
      

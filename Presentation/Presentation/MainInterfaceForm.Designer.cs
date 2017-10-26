@@ -56,6 +56,7 @@
             this.btnDownload = new System.Windows.Forms.Button();
             this.btnDeleteFeed = new System.Windows.Forms.Button();
             this.ckbHasListened = new System.Windows.Forms.CheckBox();
+            this.tbAddCategory = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // tbUrl
@@ -146,7 +147,7 @@
             // 
             // btnCategoryAdd
             // 
-            this.btnCategoryAdd.Location = new System.Drawing.Point(337, 324);
+            this.btnCategoryAdd.Location = new System.Drawing.Point(483, 324);
             this.btnCategoryAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnCategoryAdd.Name = "btnCategoryAdd";
             this.btnCategoryAdd.Size = new System.Drawing.Size(128, 52);
@@ -157,7 +158,7 @@
             // 
             // btnChangeCategory
             // 
-            this.btnChangeCategory.Location = new System.Drawing.Point(337, 393);
+            this.btnChangeCategory.Location = new System.Drawing.Point(397, 393);
             this.btnChangeCategory.Margin = new System.Windows.Forms.Padding(4);
             this.btnChangeCategory.Name = "btnChangeCategory";
             this.btnChangeCategory.Size = new System.Drawing.Size(128, 52);
@@ -179,7 +180,7 @@
             // 
             // btnShowAllFeeds
             // 
-            this.btnShowAllFeeds.Location = new System.Drawing.Point(482, 324);
+            this.btnShowAllFeeds.Location = new System.Drawing.Point(483, 462);
             this.btnShowAllFeeds.Margin = new System.Windows.Forms.Padding(4);
             this.btnShowAllFeeds.Name = "btnShowAllFeeds";
             this.btnShowAllFeeds.Size = new System.Drawing.Size(128, 52);
@@ -336,11 +337,19 @@
             this.ckbHasListened.Text = "Has Listened";
             this.ckbHasListened.UseVisualStyleBackColor = true;
             // 
+            // tbAddCategory
+            // 
+            this.tbAddCategory.Location = new System.Drawing.Point(337, 339);
+            this.tbAddCategory.Name = "tbAddCategory";
+            this.tbAddCategory.Size = new System.Drawing.Size(135, 22);
+            this.tbAddCategory.TabIndex = 31;
+            // 
             // MainInterfaceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1458, 702);
+            this.Controls.Add(this.tbAddCategory);
             this.Controls.Add(this.ckbHasListened);
             this.Controls.Add(this.btnDeleteFeed);
             this.Controls.Add(this.btnDownload);
@@ -408,6 +417,7 @@
         private System.Windows.Forms.Button btnDownload;
         private System.Windows.Forms.Button btnDeleteFeed;
         private System.Windows.Forms.CheckBox ckbHasListened;
+        private System.Windows.Forms.TextBox tbAddCategory;
     }
 }
 

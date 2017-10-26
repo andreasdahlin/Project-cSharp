@@ -19,8 +19,9 @@ namespace Presentation
 
         //public Categories categories = new Categories();
         private List<Podcast> podcasts = new List<Podcast>();
-
+        private List<Categories> categories = new List<Categories>();
         private XmlSerializer serializer = new XmlSerializer(typeof(List<Podcast>));
+        private XmlSerializer serializerForCat = new XmlSerializer(typeof(List<Categories>));
         private System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
 
         private string newUrl = "";
@@ -52,6 +53,11 @@ namespace Presentation
             using (var stream = new StreamReader("podcasts.xml")) // Läser från XML filen.
             {
                 podcasts = (List<Podcast>) serializer.Deserialize(stream);
+            }
+
+            using(var stream = new StreamReader("categories.xml")) // Läser från XML filen.
+            {
+                categories = (List<Categories>)serializerForCat.Deserialize(stream);
             }
         }
 
@@ -86,6 +92,7 @@ namespace Presentation
 
         public void GetCategoryInformation()
         {
+            LoadXML();
             var xml = "";
             using (var client = new System.Net.WebClient())
             {
@@ -130,6 +137,11 @@ namespace Presentation
             lbPodcasts.Items.Clear();
         }
 
+        public void ClearCategoryList()
+        {
+            lbCategories.Items.Clear();
+        }
+
         //public void LoadCategories()
         //{
         //    lbCategories.Items.Clear();
@@ -140,11 +152,26 @@ namespace Presentation
         //        lbCategories.Items.Add(cat.Name);
         //    }
         //}
+        private Categories AddNewCategory(string categoryName)
+        {
+            Categories category = new Categories { Name = categoryName };
+            return category;
+        }
 
         private void btnCategoryAdd_Click(object sender, EventArgs e)
         {
-            var newForm = new NewCategoryForm();
-            newForm.Show();
+            ClearCategoryList();
+            string category = tbAddCategory.Text;
+            Categories categoryNew = AddNewCategory(category);
+            categories.Add(categoryNew);
+
+
+
+            using (var stream = new StreamWriter("categories.xml")) // Skapar XML filen.
+            {
+                serializerForCat.Serialize(stream, categories);
+            }
+            GetCategoryInformation();
         }
 
         private void btnChangeCategory_Click(object sender, EventArgs e)
