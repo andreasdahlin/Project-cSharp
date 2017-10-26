@@ -57,9 +57,9 @@
             this.lblNewCategory.AutoSize = true;
             this.lblNewCategory.Location = new System.Drawing.Point(29, 38);
             this.lblNewCategory.Name = "lblNewCategory";
-            this.lblNewCategory.Size = new System.Drawing.Size(211, 17);
+            this.lblNewCategory.Size = new System.Drawing.Size(204, 17);
             this.lblNewCategory.TabIndex = 2;
-            this.lblNewCategory.Text = "Chose a name for your category";
+            this.lblNewCategory.Text = "Write a name for your category";
             // 
             // NewCategoryForm
             // 

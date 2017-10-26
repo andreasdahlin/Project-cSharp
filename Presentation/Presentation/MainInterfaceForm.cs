@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Timers;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Linq;
@@ -14,16 +15,21 @@ namespace Presentation
 {
     public partial class MainInterfaceForm : Form
     {
-        private updateIntervall updateIntervall;
+
 
         //public Categories categories = new Categories();
         private List<Podcast> podcasts = new List<Podcast>();
+
+        private XmlSerializer serializer = new XmlSerializer(typeof(List<Podcast>));
+        private System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
 
         private string newUrl = "";
         private string newestText = "";
         private string choosedXml = "";
         private string url = "";
         private string newMp3Text = "";
+        private int intervalInt;
+
 
 
 
@@ -31,12 +37,22 @@ namespace Presentation
         {
             InitializeComponent();
             //LoadCategories();
-            //GetInformation();
+            GetInformation();
             GetCategoryInformation();
-            updateIntervall = new updateIntervall();
-            updateIntervall.EnableIntervalUpdateForFeeds(podcasts);
             LoadCategoryBox();
             CleanAll();
+            LoadXML();
+
+
+        }
+
+
+        private void LoadXML()
+        {
+            using (var stream = new StreamReader("podcasts.xml")) // Läser från XML filen.
+            {
+                podcasts = (List<Podcast>) serializer.Deserialize(stream);
+            }
         }
 
         public void CleanAll()
@@ -44,7 +60,6 @@ namespace Presentation
             lbFeeds.Items.Clear();
             lbPodcasts.Items.Clear();
             rtbDetails.Text = "";
-
         }
 
         public void GetInformation()
@@ -67,7 +82,6 @@ namespace Presentation
 
                 lbFeeds.Items.Add(name.InnerText);
             }
-
         }
 
         public void GetCategoryInformation()
@@ -90,7 +104,6 @@ namespace Presentation
 
                 lbCategories.Items.Add(name.InnerText);
             }
-
         }
 
         public void LoadCategoryBox()
@@ -110,7 +123,6 @@ namespace Presentation
         public void ClearListBox()
         {
             lbFeeds.Items.Clear();
-
         }
 
         public void ClearListBoxTwo()
@@ -141,9 +153,16 @@ namespace Presentation
             newChangeCategoryForm.Show();
         }
 
-        private Podcast AddNewPodcast(string url, string name, double interval, string category)
+        private Podcast AddNewPodcast(string url, string name, int interval, string category)
         {
-            Podcast podcast = new Podcast {url = url, name = name, interval = interval, category = category};
+            Podcast podcast = new Podcast
+            {
+                url = url,
+                name = name,
+                interval = interval * 60000,
+                category = category,
+               
+            };
             return podcast;
         }
 
@@ -151,29 +170,65 @@ namespace Presentation
         {
             string url = tbUrl.Text;
             string name = tbName.Text;
-            double interval = Convert.ToDouble(tbInterval.Text);
+            int interval = Convert.ToInt32(tbInterval.Text);
             string category = cmbCategory.SelectedItem.ToString();
+            
+
 
             Podcast podcast = AddNewPodcast(url, name, interval, category);
             podcasts.Add(podcast);
 
-            var serializer = new XmlSerializer(typeof(List<Podcast>));
 
             using (var stream = new StreamWriter("podcasts.xml")) // Skapar XML filen.
             {
                 serializer.Serialize(stream, podcasts);
             }
 
-            using (var stream = new StreamReader("podcasts.xml")) // Läser från XML filen.
-            {
-                var dePodcasts = (List<Podcast>) serializer.Deserialize(stream);
-            }
+            MessageBox.Show("Feed added.");
             ClearListBox();
             GetInformation();
-
         }
 
         private void btnAddPodcast_Click(object sender, EventArgs e)
+        {
+            FillWithPodcasts();
+            string newText = lbFeeds.GetItemText(lbFeeds.SelectedItem);
+            var newXml = "";
+
+            using (var client = new System.Net.WebClient())
+            {
+                client.Encoding = Encoding.UTF8;
+                newXml = client.DownloadString("podcasts.xml");
+            }
+
+            var newTextDom = new XmlDocument();
+            newTextDom.LoadXml(newXml);
+
+            foreach (XmlNode item
+                in newTextDom.DocumentElement.SelectNodes("Podcast"))
+            {
+
+                var newTextTwo = item.SelectSingleNode("name");
+                newestText = newTextTwo.InnerText;
+                if (newestText == newText)
+                {
+                    string interval = item.SelectSingleNode("interval").InnerText;
+                    intervalInt = Convert.ToInt32(interval);
+                    break;
+                }
+            }
+            timer.Interval = intervalInt;
+                timer.Tick += new EventHandler(timer_Tick);
+                timer.Start();
+            
+        }
+
+        void timer_Tick(object sender, EventArgs e)
+        {
+            FillWithPodcasts();
+        }
+
+        private void FillWithPodcasts()
         {
             ClearListBoxTwo();
             string text = lbFeeds.GetItemText(lbFeeds.SelectedItem);
@@ -203,7 +258,6 @@ namespace Presentation
 
             }
 
-
             using (var client = new System.Net.WebClient())
             {
                 client.Encoding = Encoding.UTF8;
@@ -221,11 +275,9 @@ namespace Presentation
                 lbPodcasts.Items.Add(title.InnerText);
             }
         }
+    
 
-
-
-
-        private void btnAddDetails_Click(object sender, EventArgs e)
+    private void btnAddDetails_Click(object sender, EventArgs e)
         {
             ClearRichTextBox();
             string text = lbPodcasts.GetItemText(lbPodcasts.SelectedItem);
@@ -271,16 +323,19 @@ namespace Presentation
 
         private void btnDownload_Click(object sender, EventArgs e)
         {
+            
             try
             {
                 using (var client = new WebClient())
                 {
                     client.DownloadFile(newMp3Text, "podcast.mp3");
+                    
                 }
+               
             }
             catch (Exception)
             {
-                MessageBox.Show("Det finns ingen fil att ladda ner.");
+                MessageBox.Show("No file to download");
             }
         }
 
@@ -305,7 +360,6 @@ namespace Presentation
             foreach (XmlNode item
                 in textDom.DocumentElement.SelectNodes("Podcast"))
             {
-
                 var newCategory = item.SelectSingleNode("category");
                 newestCategory = newCategory.InnerText;
                 if (getCategory == newestCategory)
@@ -313,14 +367,10 @@ namespace Presentation
                     name = item.SelectSingleNode("name").InnerText;
                     lbFeeds.Items.Add(name);
                 }
-
                 else
                 {
-                    MessageBox.Show("Inga feeds i vald kategori.");
+                    MessageBox.Show("There are no feeds in this category.");
                 }
-
-
-
             }
         }
 
@@ -334,6 +384,13 @@ namespace Presentation
         {
             var newForm = new RemoveFeedForm();
             newForm.Show();
+        }
+
+        private void btnDeleteCategory_Click(object sender, EventArgs e)
+        {
+            var deleteForm = new RemoveCategory();
+            deleteForm.Show();
+             
         }
     }
 }

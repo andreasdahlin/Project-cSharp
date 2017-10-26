@@ -28,45 +28,66 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.cmbCategoryToRemove = new System.Windows.Forms.ComboBox();
-            this.btnRemoveCategory = new System.Windows.Forms.Button();
-            this.lblPickACategoryToRemove = new System.Windows.Forms.Label();
+            this.lblChooseACategory = new System.Windows.Forms.Label();
+            this.cmbCategories = new System.Windows.Forms.ComboBox();
+            this.btnChangeCategory = new System.Windows.Forms.Button();
+            this.tbNewName = new System.Windows.Forms.TextBox();
+            this.lblNewName = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // cmbCategoryToRemove
+            // lblChooseACategory
             // 
-            this.cmbCategoryToRemove.FormattingEnabled = true;
-            this.cmbCategoryToRemove.Location = new System.Drawing.Point(37, 77);
-            this.cmbCategoryToRemove.Name = "cmbCategoryToRemove";
-            this.cmbCategoryToRemove.Size = new System.Drawing.Size(194, 24);
-            this.cmbCategoryToRemove.TabIndex = 0;
+            this.lblChooseACategory.AutoSize = true;
+            this.lblChooseACategory.Location = new System.Drawing.Point(41, 57);
+            this.lblChooseACategory.Name = "lblChooseACategory";
+            this.lblChooseACategory.Size = new System.Drawing.Size(127, 17);
+            this.lblChooseACategory.TabIndex = 0;
+            this.lblChooseACategory.Text = "Choose a category";
             // 
-            // btnRemoveCategory
+            // cmbCategories
             // 
-            this.btnRemoveCategory.Location = new System.Drawing.Point(84, 127);
-            this.btnRemoveCategory.Name = "btnRemoveCategory";
-            this.btnRemoveCategory.Size = new System.Drawing.Size(96, 38);
-            this.btnRemoveCategory.TabIndex = 1;
-            this.btnRemoveCategory.Text = "Remove";
-            this.btnRemoveCategory.UseVisualStyleBackColor = true;
+            this.cmbCategories.FormattingEnabled = true;
+            this.cmbCategories.Location = new System.Drawing.Point(44, 87);
+            this.cmbCategories.Name = "cmbCategories";
+            this.cmbCategories.Size = new System.Drawing.Size(186, 24);
+            this.cmbCategories.TabIndex = 1;
             // 
-            // lblPickACategoryToRemove
+            // btnChangeCategory
             // 
-            this.lblPickACategoryToRemove.AutoSize = true;
-            this.lblPickACategoryToRemove.Location = new System.Drawing.Point(34, 48);
-            this.lblPickACategoryToRemove.Name = "lblPickACategoryToRemove";
-            this.lblPickACategoryToRemove.Size = new System.Drawing.Size(119, 17);
-            this.lblPickACategoryToRemove.TabIndex = 2;
-            this.lblPickACategoryToRemove.Text = "Chose a category";
+            this.btnChangeCategory.Location = new System.Drawing.Point(60, 216);
+            this.btnChangeCategory.Name = "btnChangeCategory";
+            this.btnChangeCategory.Size = new System.Drawing.Size(146, 40);
+            this.btnChangeCategory.TabIndex = 2;
+            this.btnChangeCategory.Text = "Change category";
+            this.btnChangeCategory.UseVisualStyleBackColor = true;
+            this.btnChangeCategory.Click += new System.EventHandler(this.btnChangeCategory_Click);
+            // 
+            // tbNewName
+            // 
+            this.tbNewName.Location = new System.Drawing.Point(44, 165);
+            this.tbNewName.Name = "tbNewName";
+            this.tbNewName.Size = new System.Drawing.Size(186, 22);
+            this.tbNewName.TabIndex = 3;
+            // 
+            // lblNewName
+            // 
+            this.lblNewName.AutoSize = true;
+            this.lblNewName.Location = new System.Drawing.Point(41, 135);
+            this.lblNewName.Name = "lblNewName";
+            this.lblNewName.Size = new System.Drawing.Size(121, 17);
+            this.lblNewName.TabIndex = 4;
+            this.lblNewName.Text = "Write a new name";
             // 
             // ChangeCategoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(282, 208);
-            this.Controls.Add(this.lblPickACategoryToRemove);
-            this.Controls.Add(this.btnRemoveCategory);
-            this.Controls.Add(this.cmbCategoryToRemove);
+            this.ClientSize = new System.Drawing.Size(283, 316);
+            this.Controls.Add(this.lblNewName);
+            this.Controls.Add(this.tbNewName);
+            this.Controls.Add(this.btnChangeCategory);
+            this.Controls.Add(this.cmbCategories);
+            this.Controls.Add(this.lblChooseACategory);
             this.Name = "ChangeCategoryForm";
             this.Text = "ChangeCategoryForm";
             this.ResumeLayout(false);
@@ -76,8 +97,10 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox cmbCategoryToRemove;
-        private System.Windows.Forms.Button btnRemoveCategory;
-        private System.Windows.Forms.Label lblPickACategoryToRemove;
+        private System.Windows.Forms.Label lblChooseACategory;
+        private System.Windows.Forms.ComboBox cmbCategories;
+        private System.Windows.Forms.Button btnChangeCategory;
+        private System.Windows.Forms.TextBox tbNewName;
+        private System.Windows.Forms.Label lblNewName;
     }
 }

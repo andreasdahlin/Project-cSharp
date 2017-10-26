@@ -55,6 +55,7 @@
             this.btnAddDetails = new System.Windows.Forms.Button();
             this.btnDownload = new System.Windows.Forms.Button();
             this.btnDeleteFeed = new System.Windows.Forms.Button();
+            this.ckbHasListened = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // tbUrl
@@ -72,6 +73,7 @@
             this.tbInterval.Name = "tbInterval";
             this.tbInterval.Size = new System.Drawing.Size(282, 22);
             this.tbInterval.TabIndex = 2;
+            this.tbInterval.Text = "In minutes";
             // 
             // cmbCategory
             // 
@@ -155,7 +157,7 @@
             // 
             // btnChangeCategory
             // 
-            this.btnChangeCategory.Location = new System.Drawing.Point(485, 322);
+            this.btnChangeCategory.Location = new System.Drawing.Point(337, 393);
             this.btnChangeCategory.Margin = new System.Windows.Forms.Padding(4);
             this.btnChangeCategory.Name = "btnChangeCategory";
             this.btnChangeCategory.Size = new System.Drawing.Size(128, 52);
@@ -166,17 +168,18 @@
             // 
             // btnDeleteCategory
             // 
-            this.btnDeleteCategory.Location = new System.Drawing.Point(337, 383);
+            this.btnDeleteCategory.Location = new System.Drawing.Point(337, 462);
             this.btnDeleteCategory.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeleteCategory.Name = "btnDeleteCategory";
             this.btnDeleteCategory.Size = new System.Drawing.Size(128, 52);
             this.btnDeleteCategory.TabIndex = 13;
             this.btnDeleteCategory.Text = "Remove Category";
             this.btnDeleteCategory.UseVisualStyleBackColor = true;
+            this.btnDeleteCategory.Click += new System.EventHandler(this.btnDeleteCategory_Click);
             // 
             // btnShowAllFeeds
             // 
-            this.btnShowAllFeeds.Location = new System.Drawing.Point(485, 383);
+            this.btnShowAllFeeds.Location = new System.Drawing.Point(482, 324);
             this.btnShowAllFeeds.Margin = new System.Windows.Forms.Padding(4);
             this.btnShowAllFeeds.Name = "btnShowAllFeeds";
             this.btnShowAllFeeds.Size = new System.Drawing.Size(128, 52);
@@ -258,7 +261,7 @@
             // lblPodcastDetails
             // 
             this.lblPodcastDetails.AutoSize = true;
-            this.lblPodcastDetails.Location = new System.Drawing.Point(1081, 371);
+            this.lblPodcastDetails.Location = new System.Drawing.Point(1074, 383);
             this.lblPodcastDetails.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPodcastDetails.Name = "lblPodcastDetails";
             this.lblPodcastDetails.Size = new System.Drawing.Size(106, 17);
@@ -277,9 +280,9 @@
             // 
             // btnAddPodcast
             // 
-            this.btnAddPodcast.Location = new System.Drawing.Point(670, 336);
+            this.btnAddPodcast.Location = new System.Drawing.Point(648, 324);
             this.btnAddPodcast.Name = "btnAddPodcast";
-            this.btnAddPodcast.Size = new System.Drawing.Size(143, 40);
+            this.btnAddPodcast.Size = new System.Drawing.Size(138, 52);
             this.btnAddPodcast.TabIndex = 25;
             this.btnAddPodcast.Text = "Show Podcasts";
             this.btnAddPodcast.UseVisualStyleBackColor = true;
@@ -295,9 +298,9 @@
             // 
             // btnAddDetails
             // 
-            this.btnAddDetails.Location = new System.Drawing.Point(1043, 326);
+            this.btnAddDetails.Location = new System.Drawing.Point(1026, 324);
             this.btnAddDetails.Name = "btnAddDetails";
-            this.btnAddDetails.Size = new System.Drawing.Size(184, 32);
+            this.btnAddDetails.Size = new System.Drawing.Size(184, 44);
             this.btnAddDetails.TabIndex = 27;
             this.btnAddDetails.Text = "Show Details";
             this.btnAddDetails.UseVisualStyleBackColor = true;
@@ -323,11 +326,22 @@
             this.btnDeleteFeed.UseVisualStyleBackColor = true;
             this.btnDeleteFeed.Click += new System.EventHandler(this.btnDeleteFeed_Click);
             // 
+            // ckbHasListened
+            // 
+            this.ckbHasListened.AutoSize = true;
+            this.ckbHasListened.Location = new System.Drawing.Point(704, 586);
+            this.ckbHasListened.Name = "ckbHasListened";
+            this.ckbHasListened.Size = new System.Drawing.Size(113, 21);
+            this.ckbHasListened.TabIndex = 30;
+            this.ckbHasListened.Text = "Has Listened";
+            this.ckbHasListened.UseVisualStyleBackColor = true;
+            // 
             // MainInterfaceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1458, 702);
+            this.Controls.Add(this.ckbHasListened);
             this.Controls.Add(this.btnDeleteFeed);
             this.Controls.Add(this.btnDownload);
             this.Controls.Add(this.btnAddDetails);
@@ -393,6 +407,7 @@
         private System.Windows.Forms.Button btnAddDetails;
         private System.Windows.Forms.Button btnDownload;
         private System.Windows.Forms.Button btnDeleteFeed;
+        private System.Windows.Forms.CheckBox ckbHasListened;
     }
 }
 

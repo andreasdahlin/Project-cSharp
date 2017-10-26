@@ -7,12 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 using System.Xml.Linq;
 
 namespace Presentation
 {
     public partial class RemoveFeedForm : Form
     {
+        private string xml;
+        private string name;
+
         public RemoveFeedForm()
         {
             InitializeComponent();
@@ -30,7 +34,30 @@ namespace Presentation
 
         private void btnDeleteFeed_Click(object sender, EventArgs e)
         {
+      
+            string getFeed = cmbChoseFeed.GetItemText(cmbChoseFeed.SelectedItem);
 
+            using (var client = new System.Net.WebClient())
+            {
+                client.Encoding = Encoding.UTF8;
+                xml = client.DownloadString("podcasts.xml");
+            }
+
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(xml);
+
+            foreach (XmlNode node in doc.SelectNodes("//Podcast"))
+            {
+                name = node["name"].InnerText;
+            }
+            if (name == getFeed)
+            {
+                XmlNode node = doc.SelectSingleNode("//Podcast//name");
+                XmlNode parent = node.ParentNode;
+                parent.ParentNode.RemoveChild(parent);
+                doc.Save("podcasts.xml");
+                MessageBox.Show("Feed removed.");
+            }
         }
     }
 }

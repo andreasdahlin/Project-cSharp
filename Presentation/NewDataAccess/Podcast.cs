@@ -10,7 +10,8 @@ namespace Presentation
     {
         public string url { get; set; }
         public string name { get; set; }
-        public double interval { get; set; }
+        public int interval { get; set; }
         public string category { get; set; }
+    
     }
 }

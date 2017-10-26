@@ -11,17 +11,28 @@ using System.Xml;
 using System.Xml.Serialization;
 using NewLogic;
 using System.IO;
+using System.Xml.Linq;
 
 namespace Presentation
 {
     public partial class NewCategoryForm : Form
     {
         private MainInterfaceForm mainForm = new MainInterfaceForm();
+        private XmlSerializer serializer = new XmlSerializer(typeof(List<Categories>));
         private List<Categories> categories = new List<Categories>();
 
         public NewCategoryForm()
         {
             InitializeComponent();
+            LoadXML();
+        }
+
+        private void LoadXML()
+        {
+            using (var stream = new StreamReader("categories.xml")) // Läser från XML filen.
+            {
+                categories = (List<Categories>)serializer.Deserialize(stream);
+            }
         }
 
         private Categories AddNewCategory(string categoryName)
@@ -33,23 +44,21 @@ namespace Presentation
         private void button1_Click(object sender, EventArgs e)
         {
             string category = tbNewName.Text;
-
             Categories categoryNew = AddNewCategory(category);
             categories.Add(categoryNew);
 
-            var serializer = new XmlSerializer(typeof(List<Categories>));
 
             using (var stream = new StreamWriter("categories.xml")) // Skapar XML filen.
             {
                 serializer.Serialize(stream, categories);
             }
 
-            using (var stream = new StreamReader("categories.xml")) // Läser från XML filen.
-            {
-                var dePodcasts = (List<Categories>)serializer.Deserialize(stream);
-            }
-
+         
         }
+
+    }
+
+     
 
         //private void button1_Click(object sender, EventArgs e)
         //{
@@ -61,4 +70,4 @@ namespace Presentation
         //    this.Dispose();
         //}
     }
-}
+
