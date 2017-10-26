@@ -63,7 +63,6 @@
     <Compile Include="NewCategoryForm.Designer.cs">
       <DependentUpon>NewCategoryForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Podcast.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ChangeCategoryForm.resx">
@@ -98,6 +97,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\NewDataAccess\NewDataAccess.csproj">
+      <Project>{821c9eb6-78a4-42e0-9b68-ccff6be10a63}</Project>
+      <Name>NewDataAccess</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NewLogic\NewLogic.csproj">
       <Project>{737ed5f7-dd23-4b46-9523-3d3ef540d562}</Project>
       <Name>NewLogic</Name>

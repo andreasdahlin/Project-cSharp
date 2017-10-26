@@ -81,7 +81,6 @@
             this.cmbCategory.Name = "cmbCategory";
             this.cmbCategory.Size = new System.Drawing.Size(281, 24);
             this.cmbCategory.TabIndex = 2;
-            this.cmbCategory.SelectedIndexChanged += new System.EventHandler(this.cmbCategory_SelectedIndexChanged);
             // 
             // tbName
             // 
@@ -193,6 +192,7 @@
             this.btnShowAllFeeds.TabIndex = 14;
             this.btnShowAllFeeds.Text = "Show All Feeds";
             this.btnShowAllFeeds.UseVisualStyleBackColor = true;
+            this.btnShowAllFeeds.Click += new System.EventHandler(this.btnShowAllFeeds_Click);
             // 
             // lblUrl
             // 

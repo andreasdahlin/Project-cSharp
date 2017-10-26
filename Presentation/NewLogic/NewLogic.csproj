@@ -42,10 +42,19 @@
   <ItemGroup>
     <Compile Include="CategorieObjects.cs" />
     <Compile Include="Categories.cs" />
+    <Compile Include="FeedTimer.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Feeds.cs" />
-    <Compile Include="Podcasts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="updateIntervall.cs" />
     <Compile Include="Validation.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NewDataAccess\NewDataAccess.csproj">
+      <Project>{821c9eb6-78a4-42e0-9b68-ccff6be10a63}</Project>
+      <Name>NewDataAccess</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
