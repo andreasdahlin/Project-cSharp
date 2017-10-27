@@ -48,17 +48,16 @@ namespace Presentation
             catDoc.LoadXml(categoryXml);
 
 
-            foreach(XmlNode node in catDoc.SelectNodes("//Categories"))
+            foreach(XmlNode node in catDoc.SelectNodes("//Categories//Name"))
             {
-                name = node["Name"].InnerText;
-                if (name == getFeed)
+
+                if (node.InnerText == getFeed)
                 {
-                    XmlNode newNodeC = catDoc.SelectSingleNode("//Categories//Name");
-                    XmlNode parents = newNodeC.ParentNode;
-                    parents.RemoveChild(parents);
+                    XmlNode parents = node.ParentNode;
+                    parents.ParentNode.RemoveChild(parents);
                     catDoc.Save("categories.xml");
                 }
             }
+            }
         }
-    }
 }

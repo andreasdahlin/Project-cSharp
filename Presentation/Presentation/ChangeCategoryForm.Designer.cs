@@ -33,6 +33,7 @@
             this.btnChangeCategory = new System.Windows.Forms.Button();
             this.tbNewName = new System.Windows.Forms.TextBox();
             this.lblNewName = new System.Windows.Forms.Label();
+            this.btnGetCategoryInfo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblChooseACategory
@@ -54,7 +55,7 @@
             // 
             // btnChangeCategory
             // 
-            this.btnChangeCategory.Location = new System.Drawing.Point(60, 216);
+            this.btnChangeCategory.Location = new System.Drawing.Point(59, 366);
             this.btnChangeCategory.Name = "btnChangeCategory";
             this.btnChangeCategory.Size = new System.Drawing.Size(146, 40);
             this.btnChangeCategory.TabIndex = 2;
@@ -64,7 +65,7 @@
             // 
             // tbNewName
             // 
-            this.tbNewName.Location = new System.Drawing.Point(44, 165);
+            this.tbNewName.Location = new System.Drawing.Point(44, 328);
             this.tbNewName.Name = "tbNewName";
             this.tbNewName.Size = new System.Drawing.Size(186, 22);
             this.tbNewName.TabIndex = 3;
@@ -72,17 +73,28 @@
             // lblNewName
             // 
             this.lblNewName.AutoSize = true;
-            this.lblNewName.Location = new System.Drawing.Point(41, 135);
+            this.lblNewName.Location = new System.Drawing.Point(41, 286);
             this.lblNewName.Name = "lblNewName";
             this.lblNewName.Size = new System.Drawing.Size(121, 17);
             this.lblNewName.TabIndex = 4;
             this.lblNewName.Text = "Write a new name";
             // 
+            // btnGetCategoryInfo
+            // 
+            this.btnGetCategoryInfo.Location = new System.Drawing.Point(80, 137);
+            this.btnGetCategoryInfo.Name = "btnGetCategoryInfo";
+            this.btnGetCategoryInfo.Size = new System.Drawing.Size(125, 46);
+            this.btnGetCategoryInfo.TabIndex = 5;
+            this.btnGetCategoryInfo.Text = "Get information";
+            this.btnGetCategoryInfo.UseVisualStyleBackColor = true;
+            this.btnGetCategoryInfo.Click += new System.EventHandler(this.btnGetCategoryInfo_Click);
+            // 
             // ChangeCategoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(283, 316);
+            this.ClientSize = new System.Drawing.Size(288, 483);
+            this.Controls.Add(this.btnGetCategoryInfo);
             this.Controls.Add(this.lblNewName);
             this.Controls.Add(this.tbNewName);
             this.Controls.Add(this.btnChangeCategory);
@@ -102,5 +114,6 @@
         private System.Windows.Forms.Button btnChangeCategory;
         private System.Windows.Forms.TextBox tbNewName;
         private System.Windows.Forms.Label lblNewName;
+        private System.Windows.Forms.Button btnGetCategoryInfo;
     }
 }

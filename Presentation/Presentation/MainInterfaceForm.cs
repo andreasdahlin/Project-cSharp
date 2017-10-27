@@ -161,6 +161,7 @@ namespace Presentation
         private void btnCategoryAdd_Click(object sender, EventArgs e)
         {
             ClearCategoryList();
+
             string category = tbAddCategory.Text;
             Categories categoryNew = AddNewCategory(category);
             categories.Add(categoryNew);
@@ -172,6 +173,7 @@ namespace Presentation
                 serializerForCat.Serialize(stream, categories);
             }
             GetCategoryInformation();
+            LoadCategoryBox();
         }
 
         private void btnChangeCategory_Click(object sender, EventArgs e)

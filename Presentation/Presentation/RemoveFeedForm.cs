@@ -46,18 +46,29 @@ namespace Presentation
             XmlDocument doc = new XmlDocument();
             doc.LoadXml(xml);
 
-            foreach (XmlNode node in doc.SelectNodes("//Podcast"))
+            //foreach (XmlNode node in doc.SelectNodes("//Podcast"))
+            //{
+            //    name = node["name"].InnerText;
+            //}
+            //if (name == getFeed)
+            //{
+            //    XmlNode node = doc.SelectSingleNode("//Podcast//name");
+            //    XmlNode parent = node.ParentNode;
+            //    parent.ParentNode.RemoveChild(parent);
+            //    doc.Save("podcasts.xml");
+            //    MessageBox.Show("Feed removed.");
+            //}
+            foreach (XmlNode node in doc.SelectNodes("//Podcast//name"))
             {
-                name = node["name"].InnerText;
+
+                if (node.InnerText == getFeed)
+                {
+                    XmlNode parents = node.ParentNode;
+                    parents.ParentNode.RemoveChild(parents);
+                    doc.Save("podcasts.xml");
+                }
             }
-            if (name == getFeed)
-            {
-                XmlNode node = doc.SelectSingleNode("//Podcast//name");
-                XmlNode parent = node.ParentNode;
-                parent.ParentNode.RemoveChild(parent);
-                doc.Save("podcasts.xml");
-                MessageBox.Show("Feed removed.");
-            }
+
         }
     }
 }
