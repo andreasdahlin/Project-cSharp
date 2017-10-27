@@ -61,7 +61,7 @@
             // 
             // tbUrl
             // 
-            this.tbUrl.Location = new System.Drawing.Point(48, 44);
+            this.tbUrl.Location = new System.Drawing.Point(30, 133);
             this.tbUrl.Margin = new System.Windows.Forms.Padding(4);
             this.tbUrl.Name = "tbUrl";
             this.tbUrl.Size = new System.Drawing.Size(283, 22);
@@ -69,7 +69,7 @@
             // 
             // tbInterval
             // 
-            this.tbInterval.Location = new System.Drawing.Point(48, 139);
+            this.tbInterval.Location = new System.Drawing.Point(30, 228);
             this.tbInterval.Margin = new System.Windows.Forms.Padding(4);
             this.tbInterval.Name = "tbInterval";
             this.tbInterval.Size = new System.Drawing.Size(282, 22);
@@ -79,7 +79,7 @@
             // cmbCategory
             // 
             this.cmbCategory.FormattingEnabled = true;
-            this.cmbCategory.Location = new System.Drawing.Point(48, 202);
+            this.cmbCategory.Location = new System.Drawing.Point(30, 291);
             this.cmbCategory.Margin = new System.Windows.Forms.Padding(4);
             this.cmbCategory.Name = "cmbCategory";
             this.cmbCategory.Size = new System.Drawing.Size(281, 24);
@@ -87,7 +87,7 @@
             // 
             // tbName
             // 
-            this.tbName.Location = new System.Drawing.Point(48, 92);
+            this.tbName.Location = new System.Drawing.Point(30, 181);
             this.tbName.Margin = new System.Windows.Forms.Padding(4);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(282, 22);
@@ -95,7 +95,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(48, 260);
+            this.btnAdd.Location = new System.Drawing.Point(30, 349);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(127, 52);
@@ -106,7 +106,7 @@
             // 
             // btnChange
             // 
-            this.btnChange.Location = new System.Drawing.Point(203, 260);
+            this.btnChange.Location = new System.Drawing.Point(185, 349);
             this.btnChange.Margin = new System.Windows.Forms.Padding(4);
             this.btnChange.Name = "btnChange";
             this.btnChange.Size = new System.Drawing.Size(127, 52);
@@ -147,7 +147,7 @@
             // 
             // btnCategoryAdd
             // 
-            this.btnCategoryAdd.Location = new System.Drawing.Point(483, 324);
+            this.btnCategoryAdd.Location = new System.Drawing.Point(197, 43);
             this.btnCategoryAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnCategoryAdd.Name = "btnCategoryAdd";
             this.btnCategoryAdd.Size = new System.Drawing.Size(128, 52);
@@ -158,7 +158,7 @@
             // 
             // btnChangeCategory
             // 
-            this.btnChangeCategory.Location = new System.Drawing.Point(397, 393);
+            this.btnChangeCategory.Location = new System.Drawing.Point(33, 537);
             this.btnChangeCategory.Margin = new System.Windows.Forms.Padding(4);
             this.btnChangeCategory.Name = "btnChangeCategory";
             this.btnChangeCategory.Size = new System.Drawing.Size(128, 52);
@@ -169,7 +169,7 @@
             // 
             // btnDeleteCategory
             // 
-            this.btnDeleteCategory.Location = new System.Drawing.Point(337, 462);
+            this.btnDeleteCategory.Location = new System.Drawing.Point(197, 537);
             this.btnDeleteCategory.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeleteCategory.Name = "btnDeleteCategory";
             this.btnDeleteCategory.Size = new System.Drawing.Size(128, 52);
@@ -180,7 +180,7 @@
             // 
             // btnShowAllFeeds
             // 
-            this.btnShowAllFeeds.Location = new System.Drawing.Point(483, 462);
+            this.btnShowAllFeeds.Location = new System.Drawing.Point(411, 320);
             this.btnShowAllFeeds.Margin = new System.Windows.Forms.Padding(4);
             this.btnShowAllFeeds.Name = "btnShowAllFeeds";
             this.btnShowAllFeeds.Size = new System.Drawing.Size(128, 52);
@@ -192,7 +192,7 @@
             // lblUrl
             // 
             this.lblUrl.AutoSize = true;
-            this.lblUrl.Location = new System.Drawing.Point(168, 23);
+            this.lblUrl.Location = new System.Drawing.Point(150, 112);
             this.lblUrl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUrl.Name = "lblUrl";
             this.lblUrl.Size = new System.Drawing.Size(36, 17);
@@ -202,7 +202,7 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(168, 73);
+            this.lblName.Location = new System.Drawing.Point(150, 162);
             this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(45, 17);
@@ -212,7 +212,7 @@
             // lblInterval
             // 
             this.lblInterval.AutoSize = true;
-            this.lblInterval.Location = new System.Drawing.Point(159, 118);
+            this.lblInterval.Location = new System.Drawing.Point(141, 207);
             this.lblInterval.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblInterval.Name = "lblInterval";
             this.lblInterval.Size = new System.Drawing.Size(54, 17);
@@ -222,7 +222,7 @@
             // lblCategories
             // 
             this.lblCategories.AutoSize = true;
-            this.lblCategories.Location = new System.Drawing.Point(148, 182);
+            this.lblCategories.Location = new System.Drawing.Point(130, 271);
             this.lblCategories.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCategories.Name = "lblCategories";
             this.lblCategories.Size = new System.Drawing.Size(76, 17);
@@ -319,7 +319,7 @@
             // 
             // btnDeleteFeed
             // 
-            this.btnDeleteFeed.Location = new System.Drawing.Point(137, 358);
+            this.btnDeleteFeed.Location = new System.Drawing.Point(118, 427);
             this.btnDeleteFeed.Name = "btnDeleteFeed";
             this.btnDeleteFeed.Size = new System.Drawing.Size(101, 42);
             this.btnDeleteFeed.TabIndex = 29;
@@ -339,7 +339,7 @@
             // 
             // tbAddCategory
             // 
-            this.tbAddCategory.Location = new System.Drawing.Point(337, 339);
+            this.tbAddCategory.Location = new System.Drawing.Point(33, 59);
             this.tbAddCategory.Name = "tbAddCategory";
             this.tbAddCategory.Size = new System.Drawing.Size(135, 22);
             this.tbAddCategory.TabIndex = 31;

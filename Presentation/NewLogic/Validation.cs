@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace NewLogic
 {
-    class Validation
+    abstract class Validation
     {
+
     }
 }

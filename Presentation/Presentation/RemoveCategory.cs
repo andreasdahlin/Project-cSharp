@@ -12,7 +12,7 @@ using System.Xml.Linq;
 
 namespace Presentation
 {
-    public partial class RemoveCategory : Form
+    internal partial class RemoveCategory : Form
     {
         private string xml;
         private string name;
