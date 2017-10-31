@@ -28,46 +28,38 @@ namespace Presentation
             var xmlDocument = XDocument.Load("podcasts.xml");
 
             var items = from key in xmlDocument.Descendants("name")
-                select key.Value;
+                        select key.Value;
             cmbChoseFeed.DataSource = items.ToList();
         }
 
         private void btnDeleteFeed_Click(object sender, EventArgs e)
         {
-      
-            string getFeed = cmbChoseFeed.GetItemText(cmbChoseFeed.SelectedItem);
-
-            using (var client = new System.Net.WebClient())
+            if (Validering.isComboBoxEmpty(cmbChoseFeed))
             {
-                client.Encoding = Encoding.UTF8;
-                xml = client.DownloadString("podcasts.xml");
-            }
+                string getFeed = cmbChoseFeed.GetItemText(cmbChoseFeed.SelectedItem);
 
-            XmlDocument doc = new XmlDocument();
-            doc.LoadXml(xml);
-
-            //foreach (XmlNode node in doc.SelectNodes("//Podcast"))
-            //{
-            //    name = node["name"].InnerText;
-            //}
-            //if (name == getFeed)
-            //{
-            //    XmlNode node = doc.SelectSingleNode("//Podcast//name");
-            //    XmlNode parent = node.ParentNode;
-            //    parent.ParentNode.RemoveChild(parent);
-            //    doc.Save("podcasts.xml");
-            //    MessageBox.Show("Feed removed.");
-            //}
-            foreach (XmlNode node in doc.SelectNodes("//Podcast//name"))
-            {
-
-                if (node.InnerText == getFeed)
+                using (var client = new System.Net.WebClient())
                 {
-                    XmlNode parents = node.ParentNode;
-                    parents.ParentNode.RemoveChild(parents);
-                    doc.Save("podcasts.xml");
+                    client.Encoding = Encoding.UTF8;
+                    xml = client.DownloadString("podcasts.xml");
+                }
+
+                XmlDocument doc = new XmlDocument();
+                doc.LoadXml(xml);
+
+                foreach (XmlNode node in doc.SelectNodes("//Podcast//name"))
+                {
+
+                    if (node.InnerText == getFeed)
+                    {
+                        XmlNode parents = node.ParentNode;
+                        parents.ParentNode.RemoveChild(parents);
+                        doc.Save("podcasts.xml");
+                        MessageBox.Show("Feed är borttagen.");
+                    }
                 }
             }
+
 
         }
     }

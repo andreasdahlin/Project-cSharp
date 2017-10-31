@@ -160,20 +160,23 @@ namespace Presentation
 
         private void btnCategoryAdd_Click(object sender, EventArgs e)
         {
-            ClearCategoryList();
-
-            string category = tbAddCategory.Text;
-            Categories categoryNew = AddNewCategory(category);
-            categories.Add(categoryNew);
-
-
-
-            using (var stream = new StreamWriter("categories.xml")) // Skapar XML filen.
+            if (Validering.EmptyTextField(tbAddCategory))
             {
-                serializerForCat.Serialize(stream, categories);
+                ClearCategoryList();
+
+                string category = tbAddCategory.Text;
+                Categories categoryNew = AddNewCategory(category);
+                categories.Add(categoryNew);
+
+
+
+                using (var stream = new StreamWriter("categories.xml")) // Skapar XML filen.
+                {
+                    serializerForCat.Serialize(stream, categories);
+                }
+                GetCategoryInformation();
+                LoadCategoryBox();
             }
-            GetCategoryInformation();
-            LoadCategoryBox();
         }
 
         private void btnChangeCategory_Click(object sender, EventArgs e)
@@ -197,58 +200,70 @@ namespace Presentation
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            string url = tbUrl.Text;
-            string name = tbName.Text;
-            int interval = Convert.ToInt32(tbInterval.Text);
-            string category = cmbCategory.SelectedItem.ToString();
-            
-
-
-            Podcast podcast = AddNewPodcast(url, name, interval, category);
-            podcasts.Add(podcast);
-
-
-            using (var stream = new StreamWriter("podcasts.xml")) // Skapar XML filen.
+            if (Validering.EmptyTextField(tbUrl) && Validering.IsUrlCorrect(tbUrl) && Validering.EmptyTextField(tbName) && Validering.EmptyTextField(tbInterval) && Validering.EmptyInterval(tbInterval)
+                && Validering.isComboBoxEmpty(cmbCategory))
             {
-                serializer.Serialize(stream, podcasts);
-            }
+                string url = tbUrl.Text;
+                string name = tbName.Text;
+                int interval = Convert.ToInt32(tbInterval.Text);
+                string category = cmbCategory.SelectedItem.ToString();
 
-            MessageBox.Show("Feed added.");
-            ClearListBox();
-            GetInformation();
+
+
+                Podcast podcast = AddNewPodcast(url, name, interval, category);
+                podcasts.Add(podcast);
+
+
+                using (var stream = new StreamWriter("podcasts.xml")) // Skapar XML filen.
+                {
+                    serializer.Serialize(stream, podcasts);
+                }
+
+                MessageBox.Show("Feed added.");
+                ClearListBox();
+            }
         }
 
         private void btnAddPodcast_Click(object sender, EventArgs e)
         {
-            FillWithPodcasts();
-            string newText = lbFeeds.GetItemText(lbFeeds.SelectedItem);
-            var newXml = "";
-
-            using (var client = new System.Net.WebClient())
+            try
             {
-                client.Encoding = Encoding.UTF8;
-                newXml = client.DownloadString("podcasts.xml");
-            }
+                FillWithPodcasts();
+                string newText = lbFeeds.GetItemText(lbFeeds.SelectedItem);
+                var newXml = "";
 
-            var newTextDom = new XmlDocument();
-            newTextDom.LoadXml(newXml);
-
-            foreach (XmlNode item
-                in newTextDom.DocumentElement.SelectNodes("Podcast"))
-            {
-
-                var newTextTwo = item.SelectSingleNode("name");
-                newestText = newTextTwo.InnerText;
-                if (newestText == newText)
+                using (var client = new System.Net.WebClient())
                 {
-                    string interval = item.SelectSingleNode("interval").InnerText;
-                    intervalInt = Convert.ToInt32(interval);
-                    break;
+                    client.Encoding = Encoding.UTF8;
+                    newXml = client.DownloadString("podcasts.xml");
                 }
-            }
-            timer.Interval = intervalInt;
+
+                var newTextDom = new XmlDocument();
+                newTextDom.LoadXml(newXml);
+
+                foreach (XmlNode item
+                    in newTextDom.DocumentElement.SelectNodes("Podcast"))
+                {
+
+                    var newTextTwo = item.SelectSingleNode("name");
+                    newestText = newTextTwo.InnerText;
+                    if (newestText == newText)
+                    {
+                        string interval = item.SelectSingleNode("interval").InnerText;
+                        intervalInt = Convert.ToInt32(interval);
+                        break;
+                    }
+                }
+                timer.Interval = intervalInt;
                 timer.Tick += new EventHandler(timer_Tick);
                 timer.Start();
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Du har inte valt någon feed.");
+            }
+            
             
         }
 
@@ -308,45 +323,53 @@ namespace Presentation
 
     private void btnAddDetails_Click(object sender, EventArgs e)
         {
-            ClearRichTextBox();
-            string text = lbPodcasts.GetItemText(lbPodcasts.SelectedItem);
-            var xml = "";
-
-
-            using (var client = new System.Net.WebClient())
+            try
             {
-                client.Encoding = Encoding.UTF8;
-                xml = client.DownloadString(url);
-            }
+                ClearRichTextBox();
+                string text = lbPodcasts.GetItemText(lbPodcasts.SelectedItem);
+                var xml = "";
 
-            var newDomTest = new XmlDocument();
-            newDomTest.LoadXml(xml);
 
-            foreach (XmlNode item
-                in newDomTest.DocumentElement.SelectNodes("channel/item"))
-            {
-
-                var titleName = item.SelectSingleNode("title");
-                string specTitle = titleName.InnerText;
-
-                if (specTitle == text)
+                using (var client = new System.Net.WebClient())
                 {
-                    var date = item.SelectSingleNode("pubDate");
-                    var newDesc = item.SelectSingleNode("description");
-                    var link = item.SelectSingleNode("link");
-                    var mp3 = item.SelectSingleNode("enclosure[@url]");
-                    if (mp3 != null)
+                    client.Encoding = Encoding.UTF8;
+                    xml = client.DownloadString(url);
+                }
+
+                var newDomTest = new XmlDocument();
+                newDomTest.LoadXml(xml);
+
+                foreach (XmlNode item
+                    in newDomTest.DocumentElement.SelectNodes("channel/item"))
+                {
+
+                    var titleName = item.SelectSingleNode("title");
+                    string specTitle = titleName.InnerText;
+
+                    if (specTitle == text)
                     {
-                        string mp3Text = mp3.OuterXml;
-                        Char Delimiter = '"';
-                        String[] substrings = mp3Text.Split(Delimiter);
-                        newMp3Text = substrings[1];
+                        var date = item.SelectSingleNode("pubDate");
+                        var newDesc = item.SelectSingleNode("description");
+                        var link = item.SelectSingleNode("link");
+                        var mp3 = item.SelectSingleNode("enclosure[@url]");
+                        if (mp3 != null)
+                        {
+                            string mp3Text = mp3.OuterXml;
+                            Char Delimiter = '"';
+                            String[] substrings = mp3Text.Split(Delimiter);
+                            newMp3Text = substrings[1];
+                        }
+                        rtbDetails.AppendText("Släpptes: \n" + date.InnerText + " \n \n" + "Om avsnittet: \n" +
+                                              newDesc.InnerText + "\n \n" + "Länk till avsnitt: \n" + link.InnerText +
+                                              "\n");
                     }
-                    rtbDetails.AppendText("Släpptes: \n" + date.InnerText + " \n \n" + "Om avsnittet: \n" +
-                                          newDesc.InnerText + "\n \n" + "Länk till avsnitt: \n" + link.InnerText +
-                                          "\n");
                 }
             }
+            catch (Exception)
+            {
+                MessageBox.Show("Du har inte valt en podcast.");
+            }
+           
 
         }
 
@@ -355,12 +378,15 @@ namespace Presentation
             
             try
             {
+                MessageBox.Show("Nedladdning pågår.");
+
                 using (var client = new WebClient())
                 {
                     client.DownloadFile(newMp3Text, "podcast.mp3");
                     
                 }
-               
+                MessageBox.Show("Nedladdning klar. Finns att hämta i debug-mappen.");
+
             }
             catch (Exception)
             {
@@ -370,37 +396,45 @@ namespace Presentation
 
         private void btnShowAllFeeds_Click(object sender, EventArgs e)
         {
-            CleanAll();
-            string getCategory = lbCategories.GetItemText(lbCategories.SelectedItem);
-            string newestCategory = "";
-            string name = "";
-
-            var xml = "";
-
-            using (var client = new System.Net.WebClient())
+            try
             {
-                client.Encoding = Encoding.UTF8;
-                xml = client.DownloadString("podcasts.xml");
+                CleanAll();
+                string getCategory = lbCategories.GetItemText(lbCategories.SelectedItem);
+                string newestCategory = "";
+                string name = "";
+
+                var xml = "";
+
+                using (var client = new System.Net.WebClient())
+                {
+                    client.Encoding = Encoding.UTF8;
+                    xml = client.DownloadString("podcasts.xml");
+                }
+
+                var textDom = new XmlDocument();
+                textDom.LoadXml(xml);
+
+                foreach (XmlNode item
+                    in textDom.DocumentElement.SelectNodes("Podcast"))
+                {
+                    var newCategory = item.SelectSingleNode("category");
+                    newestCategory = newCategory.InnerText;
+                    if (getCategory == newestCategory)
+                    {
+                        name = item.SelectSingleNode("name").InnerText;
+                        lbFeeds.Items.Add(name);
+                    }
+                    else
+                    {
+                        MessageBox.Show("There are no feeds in this category.");
+                    }
+                }
             }
-
-            var textDom = new XmlDocument();
-            textDom.LoadXml(xml);
-
-            foreach (XmlNode item
-                in textDom.DocumentElement.SelectNodes("Podcast"))
+            catch (Exception)
             {
-                var newCategory = item.SelectSingleNode("category");
-                newestCategory = newCategory.InnerText;
-                if (getCategory == newestCategory)
-                {
-                    name = item.SelectSingleNode("name").InnerText;
-                    lbFeeds.Items.Add(name);
-                }
-                else
-                {
-                    MessageBox.Show("There are no feeds in this category.");
-                }
+                MessageBox.Show("Du har inga feeds.");
             }
+            
         }
 
         private void btnChange_Click(object sender, EventArgs e)
@@ -420,6 +454,11 @@ namespace Presentation
             var deleteForm = new RemoveCategory();
             deleteForm.Show();
              
+        }
+
+        private void tbInterval_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

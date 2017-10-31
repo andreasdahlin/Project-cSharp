@@ -55,7 +55,6 @@
             this.btnAddDetails = new System.Windows.Forms.Button();
             this.btnDownload = new System.Windows.Forms.Button();
             this.btnDeleteFeed = new System.Windows.Forms.Button();
-            this.ckbHasListened = new System.Windows.Forms.CheckBox();
             this.tbAddCategory = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
@@ -74,7 +73,7 @@
             this.tbInterval.Name = "tbInterval";
             this.tbInterval.Size = new System.Drawing.Size(282, 22);
             this.tbInterval.TabIndex = 2;
-            this.tbInterval.Text = "In minutes";
+            this.tbInterval.TextChanged += new System.EventHandler(this.tbInterval_TextChanged);
             // 
             // cmbCategory
             // 
@@ -327,16 +326,6 @@
             this.btnDeleteFeed.UseVisualStyleBackColor = true;
             this.btnDeleteFeed.Click += new System.EventHandler(this.btnDeleteFeed_Click);
             // 
-            // ckbHasListened
-            // 
-            this.ckbHasListened.AutoSize = true;
-            this.ckbHasListened.Location = new System.Drawing.Point(704, 586);
-            this.ckbHasListened.Name = "ckbHasListened";
-            this.ckbHasListened.Size = new System.Drawing.Size(113, 21);
-            this.ckbHasListened.TabIndex = 30;
-            this.ckbHasListened.Text = "Has Listened";
-            this.ckbHasListened.UseVisualStyleBackColor = true;
-            // 
             // tbAddCategory
             // 
             this.tbAddCategory.Location = new System.Drawing.Point(33, 59);
@@ -350,7 +339,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1458, 702);
             this.Controls.Add(this.tbAddCategory);
-            this.Controls.Add(this.ckbHasListened);
             this.Controls.Add(this.btnDeleteFeed);
             this.Controls.Add(this.btnDownload);
             this.Controls.Add(this.btnAddDetails);
@@ -416,7 +404,6 @@
         private System.Windows.Forms.Button btnAddDetails;
         private System.Windows.Forms.Button btnDownload;
         private System.Windows.Forms.Button btnDeleteFeed;
-        private System.Windows.Forms.CheckBox ckbHasListened;
         private System.Windows.Forms.TextBox tbAddCategory;
     }
 }

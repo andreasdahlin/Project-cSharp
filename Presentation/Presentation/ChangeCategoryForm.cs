@@ -21,30 +21,35 @@ namespace Presentation
 
         private void btnChangeCategory_Click(object sender, EventArgs e)
         {
-            string getInfo = cmbCategories.GetItemText(cmbCategories.SelectedItem);
-
-            var xml = "";
-            using (var client = new System.Net.WebClient())
+            if (Validering.isComboBoxEmpty(cmbCategories))
             {
-                client.Encoding = Encoding.UTF8;
-                xml = client.DownloadString("categories.xml");
-            }
+                string getInfo = cmbCategories.GetItemText(cmbCategories.SelectedItem);
 
-            var dom = new XmlDocument();
-            dom.LoadXml(xml);
-
-            foreach (XmlNode item
-                in dom.DocumentElement.SelectNodes("Categories"))
-            {
-                var name = item.SelectSingleNode("Name");
-                string stringName = name.InnerText;
-                if (getInfo == stringName)
+                var xml = "";
+                using (var client = new System.Net.WebClient())
                 {
-                    XmlNode nameNode = item.SelectSingleNode("Name");
-                    nameNode.InnerText = tbNewName.Text;
+                    client.Encoding = Encoding.UTF8;
+                    xml = client.DownloadString("categories.xml");
                 }
+
+                var dom = new XmlDocument();
+                dom.LoadXml(xml);
+
+                foreach (XmlNode item
+                    in dom.DocumentElement.SelectNodes("Categories"))
+                {
+                    var name = item.SelectSingleNode("Name");
+                    string stringName = name.InnerText;
+                    if (getInfo == stringName)
+                    {
+                        XmlNode nameNode = item.SelectSingleNode("Name");
+                        nameNode.InnerText = tbNewName.Text;
+                        MessageBox.Show("Kategorinamnet är ändrat.");
+                    }
+                }
+                dom.Save("categories.xml");
             }
-            dom.Save("categories.xml");
+            
         }
 
         public void getCategoryInformation()
@@ -71,30 +76,34 @@ namespace Presentation
 
         private void btnGetCategoryInfo_Click(object sender, EventArgs e)
         {
-            string getInfo = cmbCategories.GetItemText(cmbCategories.SelectedItem);
-
-            var xml = "";
-            using (var client = new System.Net.WebClient())
+            if (Validering.isComboBoxEmpty(cmbCategories))
             {
-                client.Encoding = Encoding.UTF8;
-                xml = client.DownloadString("categories.xml");
-            }
+                string getInfo = cmbCategories.GetItemText(cmbCategories.SelectedItem);
 
-            var dom = new XmlDocument();
-            dom.LoadXml(xml);
+                var xml = "";
+                using (var client = new System.Net.WebClient())
+                {
+                    client.Encoding = Encoding.UTF8;
+                    xml = client.DownloadString("categories.xml");
+                }
 
-            foreach (XmlNode item
-                in dom.DocumentElement.SelectNodes("Categories"))
-            {
-                var name = item.SelectSingleNode("Name");
+                var dom = new XmlDocument();
+                dom.LoadXml(xml);
 
-                string stringName = name.InnerText;
+                foreach (XmlNode item
+                    in dom.DocumentElement.SelectNodes("Categories"))
+                {
+                    var name = item.SelectSingleNode("Name");
 
-                if (stringName == getInfo)
-                { 
-                    tbNewName.Text = stringName;
+                    string stringName = name.InnerText;
+
+                    if (stringName == getInfo)
+                    {
+                        tbNewName.Text = stringName;
+                    }
                 }
             }
+
         }
     }
 }

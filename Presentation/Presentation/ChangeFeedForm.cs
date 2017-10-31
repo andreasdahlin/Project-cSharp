@@ -54,38 +54,50 @@ namespace Presentation
 
         private void btnChangeCategory_Click(object sender, EventArgs e)
         {
-            string getInfo = cmbChooseFeed.GetItemText(cmbChooseFeed.SelectedItem);
-
-            var xml = "";
-            using (var client = new System.Net.WebClient())
+            if (Validering.EmptyTextField(tbChangeFeedUrl) && Validering.IsUrlCorrect(tbChangeFeedUrl) &&
+                Validering.EmptyTextField(tbChangeFeedName) && Validering.EmptyTextField(tbChangeFeedInterval) &&
+                Validering.EmptyInterval(tbChangeFeedInterval)
+                && Validering.isComboBoxEmpty(cmbChangeCategory))
             {
-                client.Encoding = Encoding.UTF8;
-                xml = client.DownloadString("podcasts.xml");
-            }
+                string getInfo = cmbChooseFeed.GetItemText(cmbChooseFeed.SelectedItem);
 
-            var dom = new XmlDocument();
-            dom.LoadXml(xml);
-
-            foreach (XmlNode item
-                in dom.DocumentElement.SelectNodes("Podcast"))
-            {
-                var name = item.SelectSingleNode("name");
-                string stringName = name.InnerText;
-                if (getInfo == stringName)
+                var xml = "";
+                using (var client = new System.Net.WebClient())
                 {
-                    XmlNode urlNode = item.SelectSingleNode("url");
-                    XmlNode nameNode = item.SelectSingleNode("name");
-                    XmlNode intervalNode = item.SelectSingleNode("interval");
-                    XmlNode categoryNode = item.SelectSingleNode("category");
-
-                    urlNode.InnerText = tbChangeFeedUrl.Text;
-                    nameNode.InnerText = tbChangeFeedName.Text;
-                    intervalNode.InnerText = tbChangeFeedInterval.Text;
-                    categoryNode.InnerText = cmbChangeCategory.Text;
+                    client.Encoding = Encoding.UTF8;
+                    xml = client.DownloadString("podcasts.xml");
                 }
+
+                var dom = new XmlDocument();
+                dom.LoadXml(xml);
+
+                foreach (XmlNode item
+                    in dom.DocumentElement.SelectNodes("Podcast"))
+                {
+                    var name = item.SelectSingleNode("name");
+                    string stringName = name.InnerText;
+                    if (getInfo == stringName)
+                    {
+                        XmlNode urlNode = item.SelectSingleNode("url");
+                        XmlNode nameNode = item.SelectSingleNode("name");
+                        XmlNode intervalNode = item.SelectSingleNode("interval");
+                        XmlNode categoryNode = item.SelectSingleNode("category");
+
+                        urlNode.InnerText = tbChangeFeedUrl.Text;
+                        nameNode.InnerText = tbChangeFeedName.Text;
+                        string intervalNumber = tbChangeFeedInterval.Text;
+                        int intIntervalNumber = Convert.ToInt32(intervalNumber);
+                        int multiplicatedIntervalNumber = intIntervalNumber * 60000;
+                        string stringMultiplicatedIntervalNumber = Convert.ToString(multiplicatedIntervalNumber);
+                        intervalNode.InnerText = stringMultiplicatedIntervalNumber;
+                        categoryNode.InnerText = cmbChangeCategory.Text;
+                        MessageBox.Show("Feed ändrad!");
+                    }
+                }
+                dom.Save("podcasts.xml");
+                LoadBox();
             }
-            dom.Save("podcasts.xml");
-            LoadBox();
+             
         }
 
         private void btnGetFeedInformation_Click(object sender, EventArgs e)
@@ -118,7 +130,11 @@ namespace Presentation
                 {
                     tbChangeFeedUrl.Text = stringUrl;
                     tbChangeFeedName.Text = stringName;
-                    tbChangeFeedInterval.Text = stringInterval;
+                    string newStringInterval = interval.InnerText;
+                    int newIntInterval = Convert.ToInt32(newStringInterval);
+                    int intInterval = newIntInterval / 60000;
+                    string newStringIntervall = Convert.ToString(intInterval);
+                    tbChangeFeedInterval.Text = newStringIntervall;
                 }
             }
         }

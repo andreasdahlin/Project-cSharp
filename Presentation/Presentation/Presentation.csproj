@@ -83,6 +83,7 @@
     <Compile Include="RemoveFeedForm.Designer.cs">
       <DependentUpon>RemoveFeedForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Validering.cs" />
     <EmbeddedResource Include="ChangeCategoryForm.resx">
       <DependentUpon>ChangeCategoryForm.cs</DependentUpon>
     </EmbeddedResource>

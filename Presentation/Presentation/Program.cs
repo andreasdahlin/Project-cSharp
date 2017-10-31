@@ -18,23 +18,6 @@ namespace Presentation
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainInterfaceForm());
-
-            try
-            {
-                var xmlDoc = new XmlDocument();
-                const string file = @"http://podcasts.joerogan.net/feed";
-                xmlDoc.Load(file);
-                xmlDoc.Save(Console.Out);
-                Console.Read();
-
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(@"The file could not be read.");
-                Console.WriteLine(e.Message);
-                
-            }
-            Console.Read();
         }
     }
 }
